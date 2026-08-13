@@ -72,11 +72,7 @@ export const SiteHeader = () => {
 
           <div className={NAVIGATION_STYLES.actions}>
             {ConfigurationService.isEnabled('themeSwitcher') && <ThemeSwitcher />}
-            <ActionLink
-              route={callToAction}
-              variant="secondary"
-              size="sm"
-              className="hidden md:inline-flex">
+            <ActionLink route={callToAction} size="sm" className="hidden md:inline-flex">
               {actions(NavigationService.ctaActionOf(callToAction))}
             </ActionLink>
             <IconButton

@@ -13,7 +13,6 @@ import { cn } from '@/utils/classnames'
 export interface SectionProps extends Styleable {
   // Section anchor
   anchor?: keyof typeof SECTION_ANCHORS
-  overline?: string
   title?: string
   description?: string
   centered?: boolean
@@ -31,7 +30,6 @@ export interface SectionProps extends Styleable {
 
 export const Section = ({
   anchor,
-  overline,
   title,
   description,
   centered = false,
@@ -41,7 +39,7 @@ export const Section = ({
   children,
   className,
 }: SectionProps) => {
-  const hasHeader = Boolean(overline || title || description || actions)
+  const hasHeader = Boolean(title || description || actions)
 
   return (
     <section
@@ -50,11 +48,6 @@ export const Section = ({
       <Container width={width}>
         {hasHeader && (
           <div className={cn(SECTION_STYLES.header, centered && SECTION_STYLES.headerCentered)}>
-            {overline && (
-              <Text appearance="overline" as="p">
-                {overline}
-              </Text>
-            )}
             {title && <Heading level={2}>{title}</Heading>}
             {description && <Text appearance="lead">{description}</Text>}
             {actions && <div className="flex flex-wrap gap-3 pt-2">{actions}</div>}

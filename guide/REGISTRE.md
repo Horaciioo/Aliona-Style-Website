@@ -25,6 +25,14 @@ Une entrée par système livré avec le template. Pour chacun : les fichiers qui
 
 **Ajouter une couleur** : une entrée dans `theme.json → colors.light` **et** `colors.dark`. Tailwind la lit au build, l'atlas l'affiche, la variable CSS `--color-<nom>` est générée. Aucun autre fichier.
 
+**Fond marbré** — `src/components/layout/MarbleBackdrop.tsx`, monté une fois par `SiteLayout`. Un SVG
+statique (`public/images/marble.svg`, turbulence + filtres de déplacement) pose la texture de pierre,
+des veines dorées discrètes et une vignette qui creuse les bords pour donner de la profondeur sans
+raviver le blanc du centre. Une seconde couche (`.marble-grain`, `MARBLE_STYLES.grain`) ajoute un grain
+à très faible opacité. Aucune animation sur ce fond : il reste immobile, les surfaces posées dessus
+(`.surface-glass`) restent volontairement plus opaques que le marbre pour que le contenu garde du
+contraste par-dessus.
+
 ---
 
 ## 2. Internationalisation

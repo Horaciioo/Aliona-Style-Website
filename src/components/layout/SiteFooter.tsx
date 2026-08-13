@@ -12,12 +12,9 @@ import { GILDING } from '@/declarations/ui/tokens'
 import { FOOTER_STYLES } from '@/declarations/ui/variants'
 import { Link, usePathname } from '@/i18n/routing'
 import { ConfigurationService } from '@/services/ConfigurationService'
-import { ConsentService } from '@/services/ConsentService'
 import { NavigationService } from '@/services/NavigationService'
 
 const { identity } = ConfigurationService
-const hasAnalytics =
-  ConfigurationService.isEnabled('analytics') && ConfigurationService.environment.analytics.enabled
 
 // Reachable channels, address last
 const CHANNELS: { id: string; icon: IconName; value: string; href?: string }[] = [
@@ -49,7 +46,6 @@ export const SiteFooter = () => {
   const pathname = usePathname()
   const t = useTranslations()
   const navigation = useTranslations('navigation')
-  const actions = useTranslations('actions')
   const columns = NavigationService.footerColumns({ pathname, translate: t })
   const socials = ConfigurationService.socialLinks()
 
@@ -63,8 +59,9 @@ export const SiteFooter = () => {
 
         <div className={FOOTER_STYLES.grid}>
           <div className="flex flex-col items-start gap-4">
-            <Logo className="h-10 w-auto" />
+            <Logo variant="mark" className="h-20 w-auto sm:h-24" />
             <Text appearance="description">{navigation('tagline')}</Text>
+            {ConfigurationService.isEnabled('languageSwitcher') && <LanguageSwitcher />}
             {socials.length > 0 && (
               <div className={FOOTER_STYLES.socials}>
                 {socials.map((social) => (
@@ -123,15 +120,6 @@ export const SiteFooter = () => {
               name: ConfigurationService.site.name,
             })}
           </Text>
-
-          <div className={FOOTER_STYLES.bottomActions}>
-            {hasAnalytics && (
-              <button type="button" onClick={ConsentService.reset} className={FOOTER_STYLES.link}>
-                {actions('manageCookies')}
-              </button>
-            )}
-            {ConfigurationService.isEnabled('languageSwitcher') && <LanguageSwitcher />}
-          </div>
         </div>
       </Container>
     </footer>

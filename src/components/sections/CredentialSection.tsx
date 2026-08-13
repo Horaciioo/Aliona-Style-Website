@@ -35,10 +35,6 @@ export const CredentialSection = ({ items = CREDENTIALS, className }: Credential
       <Container>
         <div className={EDITORIAL_STYLES.frame}>
           <div className={EDITORIAL_STYLES.body}>
-            <p className={EDITORIAL_STYLES.label}>
-              <span className={EDITORIAL_STYLES.labelRule} aria-hidden="true" />
-              {t('overline')}
-            </p>
             <Heading level={2}>{t('title')}</Heading>
             <Text appearance="lead">{t('description')}</Text>
           </div>

@@ -84,7 +84,6 @@
   },
   "sections": {
     "hero": {
-      "overline": "Coiffure & couleur · Hoenheim",
       "title": "Une couleur qui tient, une coupe qui vous va",
       "secondary": "Voir les tarifs",
       "imageAlt": "Cheveux longs en mouvement, photographiés en noir et blanc",
@@ -102,7 +101,6 @@
       }
     },
     "features": {
-      "overline": "Le métier",
       "title": "Ce que je fais au quotidien",
       "description": "Six gestes qui reviennent presque tous les jours. Pour tout le reste, on en parle avant de commencer.",
       "imageAlt": "Shampooing au bac, avant la coupe",
@@ -134,7 +132,6 @@
       }
     },
     "pricing": {
-      "overline": "Tarifs",
       "title": "Les tarifs",
       "description": "Shampooing compris. Si vos cheveux sont très longs ou très denses, il faut parfois une dose de produit en plus : je vous le dis avant de commencer.",
       "imageAlt": "Carré roux travaillé, sur fond noir",
@@ -195,7 +192,6 @@
       }
     },
     "credentials": {
-      "overline": "Parcours",
       "title": "Où j'ai appris",
       "description": "Trois formations, dont une passée à Moscou. C'est ce qui me permet de vous dire si une couleur va tenir, ou pas.",
       "imageAlt": "Brushing en fin de rendez-vous",
@@ -218,7 +214,6 @@
       }
     },
     "testimonials": {
-      "overline": "Avis Google",
       "title": "Ce qu'elles en disent",
       "description": "Les avis publiés sur la fiche Google du salon, repris tels quels. Passez la souris dessus pour arrêter le défilement.",
       "source": "Avis Google",
@@ -252,7 +247,6 @@
       }
     },
     "transformations": {
-      "overline": "Avant / après",
       "title": "Des transformations, pas des retouches",
       "description": "Chaque rendez-vous part d'un état réel et va vers un résultat tenable. Les photos du salon arrivent bientôt, les silhouettes ci-dessous les remplacent en attendant.",
       "before": "Avant",
@@ -286,7 +280,6 @@
       }
     },
     "faq": {
-      "overline": "Questions",
       "title": "Ce qu'on me demande souvent",
       "items": {
         "duration": {
@@ -334,11 +327,11 @@
       }
     },
     "booking": {
-      "overline": "Rendez-vous",
       "title": "Choisissez votre créneau",
       "description": "Le calendrier n'affiche que les heures encore libres. Une fois validé, le rendez-vous s'inscrit directement dans mon agenda.",
       "pickDate": "Choisissez d'abord une date dans le calendrier.",
       "noSlot": "Plus rien de libre ce jour-là. Essayez un autre jour, ou appelez-moi.",
+      "contactPrompt": "Une question ? Contactez-moi ici !",
       "success": {
         "title": "C'est noté",
         "description": "On se voit {date} à {slot}. Si vous avez un empêchement, un appel suffit."

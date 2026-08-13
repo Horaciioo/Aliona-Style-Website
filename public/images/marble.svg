@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" preserveAspectRatio="xMidYMid slice">
   <defs>
     <filter id="stone" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.009 0.016" numOctaves="6" seed="19" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.009 0.016" numOctaves="5" seed="19" />
       <feColorMatrix type="saturate" values="0" />
       <feComponentTransfer>
-        <feFuncR type="linear" slope="0.1" intercept="0.058" />
-        <feFuncG type="linear" slope="0.1" intercept="0.058" />
-        <feFuncB type="linear" slope="0.105" intercept="0.061" />
+        <feFuncR type="linear" slope="0.07" intercept="0.89" />
+        <feFuncG type="linear" slope="0.065" intercept="0.855" />
+        <feFuncB type="linear" slope="0.06" intercept="0.78" />
         <feFuncA type="linear" slope="0" intercept="1" />
       </feComponentTransfer>
     </filter>
@@ -15,7 +15,7 @@
       <feTurbulence type="fractalNoise" baseFrequency="0.0014 0.028" numOctaves="4" seed="41" />
       <feColorMatrix type="saturate" values="0" />
       <feComponentTransfer>
-        <feFuncA type="table" tableValues="0 0.04 0.13 0.04 0" />
+        <feFuncA type="table" tableValues="0 0.03 0.1 0.03 0" />
       </feComponentTransfer>
     </filter>
 
@@ -30,43 +30,43 @@
     </filter>
 
     <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0.25">
-      <stop offset="0" stop-color="#8a6d22" stop-opacity="0" />
-      <stop offset="0.16" stop-color="#c9a84c" stop-opacity="0.9" />
-      <stop offset="0.42" stop-color="#e8d6b3" stop-opacity="0.75" />
-      <stop offset="0.68" stop-color="#a8862f" stop-opacity="0.85" />
-      <stop offset="1" stop-color="#6b5320" stop-opacity="0" />
+      <stop offset="0" stop-color="#a68236" stop-opacity="0" />
+      <stop offset="0.16" stop-color="#a68236" stop-opacity="0.9" />
+      <stop offset="0.42" stop-color="#d6ba84" stop-opacity="0.8" />
+      <stop offset="0.68" stop-color="#866628" stop-opacity="0.85" />
+      <stop offset="1" stop-color="#a68236" stop-opacity="0" />
     </linearGradient>
 
     <linearGradient id="goldFaint" x1="0" y1="0" x2="0.6" y2="1">
-      <stop offset="0" stop-color="#c9a84c" stop-opacity="0" />
-      <stop offset="0.35" stop-color="#c9a84c" stop-opacity="0.7" />
-      <stop offset="0.7" stop-color="#e8d6b3" stop-opacity="0.5" />
-      <stop offset="1" stop-color="#8a6d22" stop-opacity="0" />
+      <stop offset="0" stop-color="#a68236" stop-opacity="0" />
+      <stop offset="0.35" stop-color="#a68236" stop-opacity="0.65" />
+      <stop offset="0.7" stop-color="#d6ba84" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#866628" stop-opacity="0" />
     </linearGradient>
 
     <radialGradient id="vignette" cx="0.5" cy="0.42" r="0.78">
-      <stop offset="0.45" stop-color="#000000" stop-opacity="0" />
-      <stop offset="1" stop-color="#000000" stop-opacity="0.55" />
+      <stop offset="0.42" stop-color="#241e16" stop-opacity="0" />
+      <stop offset="1" stop-color="#241e16" stop-opacity="0.17" />
     </radialGradient>
   </defs>
 
-  <rect width="1600" height="1200" fill="#121211" />
-  <rect width="1600" height="1200" filter="url(#stone)" opacity="0.9" />
-  <rect width="1600" height="1200" filter="url(#graphite)" opacity="0.45" />
+  <rect width="1600" height="1200" fill="#f8f3ea" />
+  <rect width="1600" height="1200" filter="url(#stone)" opacity="0.55" />
+  <rect width="1600" height="1200" filter="url(#graphite)" opacity="0.35" />
 
   <g filter="url(#crack)" fill="none" stroke-linecap="round">
-    <path d="M-60 148 C 260 96 452 232 660 176 S 1080 44 1680 118" stroke="url(#gold)" stroke-width="1.3" opacity="0.34" />
-    <path d="M-60 1042 C 320 1104 620 946 900 1002 S 1360 1132 1680 1058" stroke="url(#gold)" stroke-width="1.1" opacity="0.28" />
-    <path d="M124 -60 C 168 210 96 402 178 622 S 236 936 168 1260" stroke="url(#goldFaint)" stroke-width="1" opacity="0.22" />
-    <path d="M1462 -60 C 1408 236 1520 452 1436 706 S 1352 1024 1428 1260" stroke="url(#goldFaint)" stroke-width="0.9" opacity="0.2" />
+    <path d="M-60 148 C 260 96 452 232 660 176 S 1080 44 1680 118" stroke="url(#gold)" stroke-width="1.3" opacity="0.28" />
+    <path d="M-60 1042 C 320 1104 620 946 900 1002 S 1360 1132 1680 1058" stroke="url(#gold)" stroke-width="1.1" opacity="0.22" />
+    <path d="M124 -60 C 168 210 96 402 178 622 S 236 936 168 1260" stroke="url(#goldFaint)" stroke-width="1" opacity="0.18" />
+    <path d="M1462 -60 C 1408 236 1520 452 1436 706 S 1352 1024 1428 1260" stroke="url(#goldFaint)" stroke-width="0.9" opacity="0.16" />
   </g>
 
   <g filter="url(#hairline)" fill="none" stroke-linecap="round">
-    <path d="M178 180 C 268 232 302 344 268 452" stroke="url(#goldFaint)" stroke-width="0.6" opacity="0.22" />
-    <path d="M660 176 C 726 246 706 352 762 414" stroke="url(#goldFaint)" stroke-width="0.55" opacity="0.17" />
-    <path d="M900 1002 C 836 928 852 848 796 796" stroke="url(#goldFaint)" stroke-width="0.55" opacity="0.16" />
-    <path d="M1436 706 C 1522 752 1560 830 1544 918" stroke="url(#goldFaint)" stroke-width="0.5" opacity="0.16" />
-    <path d="M1080 118 C 1010 164 980 232 998 316" stroke="url(#goldFaint)" stroke-width="0.5" opacity="0.14" />
+    <path d="M178 180 C 268 232 302 344 268 452" stroke="url(#goldFaint)" stroke-width="0.6" opacity="0.24" />
+    <path d="M660 176 C 726 246 706 352 762 414" stroke="url(#goldFaint)" stroke-width="0.55" opacity="0.19" />
+    <path d="M900 1002 C 836 928 852 848 796 796" stroke="url(#goldFaint)" stroke-width="0.55" opacity="0.18" />
+    <path d="M1436 706 C 1522 752 1560 830 1544 918" stroke="url(#goldFaint)" stroke-width="0.5" opacity="0.18" />
+    <path d="M1080 118 C 1010 164 980 232 998 316" stroke="url(#goldFaint)" stroke-width="0.5" opacity="0.16" />
   </g>
 
   <rect width="1600" height="1200" fill="url(#vignette)" />

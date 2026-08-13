@@ -2,14 +2,7 @@ import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
-import { CallToActionSection } from '@/components/sections/CallToActionSection'
-import { FaqSection } from '@/components/sections/FaqSection'
-import { FeatureSection } from '@/components/sections/FeatureSection'
-import { GallerySection } from '@/components/sections/GallerySection'
 import { HeroSection } from '@/components/sections/HeroSection'
-import { PricingSection } from '@/components/sections/PricingSection'
-import { StatsSection } from '@/components/sections/StatsSection'
-import { TestimonialSection } from '@/components/sections/TestimonialSection'
 import { Page } from '@/structures/Page'
 
 export interface HomePageProps {
@@ -21,19 +14,9 @@ class HomePage extends Page {
     super('home')
   }
 
+  // A single screen: the rest of the site lives behind the navigation
   render(): ReactNode {
-    return (
-      <>
-        <HeroSection secondaryRoute="showcase" />
-        <StatsSection />
-        <FeatureSection />
-        <GallerySection />
-        <PricingSection />
-        <TestimonialSection />
-        <FaqSection />
-        <CallToActionSection />
-      </>
-    )
+    return <HeroSection />
   }
 }
 

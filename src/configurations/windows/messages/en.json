@@ -84,7 +84,6 @@
   },
   "sections": {
     "hero": {
-      "overline": "Hair & colour · Hoenheim",
       "title": "Colour that holds, a cut that suits you",
       "secondary": "See the prices",
       "imageAlt": "Long hair in motion, photographed in black and white",
@@ -102,7 +101,6 @@
       }
     },
     "features": {
-      "overline": "The craft",
       "title": "What I do every day",
       "description": "Six things that come up almost daily. For anything else, we talk it through before starting.",
       "imageAlt": "Shampoo at the basin, before the cut",
@@ -134,7 +132,6 @@
       }
     },
     "pricing": {
-      "overline": "Prices",
       "title": "The prices",
       "description": "Shampoo included. If your hair is very long or very dense it sometimes takes an extra dose of product, and I tell you before we start.",
       "imageAlt": "A sharp red bob against a black background",
@@ -195,7 +192,6 @@
       }
     },
     "credentials": {
-      "overline": "Background",
       "title": "Where I trained",
       "description": "Three qualifications, one of them earned in Moscow. That is what lets me tell you whether a colour will hold, or not.",
       "imageAlt": "Blow-dry at the end of an appointment",
@@ -218,7 +214,6 @@
       }
     },
     "testimonials": {
-      "overline": "Google reviews",
       "title": "What they say about it",
       "description": "The reviews published on the salon's Google listing, quoted as they are. Hover over the band to stop it scrolling.",
       "source": "Google review",
@@ -252,7 +247,6 @@
       }
     },
     "transformations": {
-      "overline": "Before / after",
       "title": "Transformations, not touch-ups",
       "description": "Every appointment starts from the real state of the hair and moves towards a result that lasts. The salon photographs are on their way, the drawings below stand in until then.",
       "before": "Before",
@@ -286,7 +280,6 @@
       }
     },
     "faq": {
-      "overline": "Questions",
       "title": "What people ask me most",
       "items": {
         "duration": {
@@ -334,11 +327,11 @@
       }
     },
     "booking": {
-      "overline": "Appointment",
       "title": "Pick your slot",
       "description": "The calendar only shows the hours still free. Once confirmed, the appointment goes straight into my diary.",
       "pickDate": "Start by choosing a date in the calendar.",
       "noSlot": "Nothing left that day. Try another one, or give me a call.",
+      "contactPrompt": "Got a question? Get in touch here!",
       "success": {
         "title": "You are booked in",
         "description": "See you on {date} at {slot}. If something comes up, a call is enough."

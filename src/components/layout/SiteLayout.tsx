@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 
+import { MarbleBackdrop } from '@/components/layout/MarbleBackdrop'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { NotificationRegion } from '@/components/structures/feedback/NotificationRegion'
@@ -23,6 +24,7 @@ const hasStickyActionBar = ConfigurationService.isEnabled('stickyActionBar')
 
 export const SiteLayout = ({ children }: SiteLayoutProps) => (
   <div className={LAYOUT.page}>
+    <MarbleBackdrop />
     <SiteHeader />
     <main className={cn(LAYOUT.main, hasStickyActionBar && 'pb-20 md:pb-0')}>{children}</main>
     <SiteFooter />

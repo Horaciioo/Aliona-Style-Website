@@ -79,10 +79,6 @@ export const TestimonialSection = ({
     <section id={SECTION_ANCHORS.testimonials} className={cn(SECTION_SPACING.md, className)}>
       <Container width="wide">
         <div className={cn(EDITORIAL_STYLES.body, 'pb-16')}>
-          <p className={EDITORIAL_STYLES.label}>
-            <span className={EDITORIAL_STYLES.labelRule} aria-hidden="true" />
-            {t('overline')}
-          </p>
           <Heading level={2}>{t('title')}</Heading>
           <Text appearance="lead" className="max-w-2xl">
             {t('description')}

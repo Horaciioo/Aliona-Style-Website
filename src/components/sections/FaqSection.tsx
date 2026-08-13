@@ -31,10 +31,6 @@ export const FaqSection = ({ items = FAQ, className }: FaqSectionProps) => {
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.7fr_1fr] lg:gap-24">
           <div className={cn(EDITORIAL_STYLES.body, 'lg:sticky lg:top-32 lg:self-start')}>
-            <p className={EDITORIAL_STYLES.label}>
-              <span className={EDITORIAL_STYLES.labelRule} aria-hidden="true" />
-              {t('overline')}
-            </p>
             <Heading level={2}>{t('title')}</Heading>
           </div>
 

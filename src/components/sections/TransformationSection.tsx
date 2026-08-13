@@ -100,10 +100,6 @@ export const TransformationSection = ({
     <section id={SECTION_ANCHORS.transformations} className={cn(SECTION_SPACING.md, className)}>
       <Container width="wide">
         <div className={cn(EDITORIAL_STYLES.body, 'pb-16')}>
-          <p className={EDITORIAL_STYLES.label}>
-            <span className={EDITORIAL_STYLES.labelRule} aria-hidden="true" />
-            {t('overline')}
-          </p>
           <Heading level={2}>{t('title')}</Heading>
           <Text appearance="lead" className="max-w-2xl">
             {t('description')}
@@ -116,36 +112,59 @@ export const TransformationSection = ({
           onMouseLeave={() => setIsPaused(false)}
           onFocusCapture={() => setIsPaused(true)}
           onBlurCapture={() => setIsPaused(false)}>
-          <div
-            ref={viewportRef}
-            onScroll={handleScroll}
-            aria-label={t('title')}
-            className={TRANSFORMATION_STYLES.viewport}>
-            {items.map((item, slide) => (
-              <div
-                key={item.id}
-                role="group"
-                aria-label={t('position', {
-                  position: String(slide + 1),
-                  total: String(items.length),
-                })}
-                className={TRANSFORMATION_STYLES.slide}>
-                <article className={TRANSFORMATION_STYLES.card}>
-                  <div className={TRANSFORMATION_STYLES.pair}>
-                    {STAGES.map((stage) => renderPanel(item, stage))}
-                  </div>
+          <div className={TRANSFORMATION_STYLES.viewportWrapper}>
+            <div
+              ref={viewportRef}
+              onScroll={handleScroll}
+              aria-label={t('title')}
+              className={TRANSFORMATION_STYLES.viewport}>
+              {items.map((item, slide) => (
+                <div
+                  key={item.id}
+                  role="group"
+                  aria-label={t('position', {
+                    position: String(slide + 1),
+                    total: String(items.length),
+                  })}
+                  className={TRANSFORMATION_STYLES.slide}>
+                  <article
+                    className={cn(
+                      TRANSFORMATION_STYLES.card,
+                      slide === index
+                        ? TRANSFORMATION_STYLES.cardActive
+                        : TRANSFORMATION_STYLES.cardInactive
+                    )}>
+                    <div className={TRANSFORMATION_STYLES.pair}>
+                      {STAGES.map((stage) => renderPanel(item, stage))}
+                    </div>
 
-                  <div className={TRANSFORMATION_STYLES.caption}>
-                    <h3 className={TRANSFORMATION_STYLES.captionTitle}>
-                      {t(`items.${item.translationKey}.title`)}
-                    </h3>
-                    <Text appearance="description">
-                      {t(`items.${item.translationKey}.description`)}
-                    </Text>
-                  </div>
-                </article>
-              </div>
-            ))}
+                    <div className={TRANSFORMATION_STYLES.caption}>
+                      <h3 className={TRANSFORMATION_STYLES.captionTitle}>
+                        {t(`items.${item.translationKey}.title`)}
+                      </h3>
+                      <Text appearance="description">
+                        {t(`items.${item.translationKey}.description`)}
+                      </Text>
+                    </div>
+                  </article>
+                </div>
+              ))}
+            </div>
+
+            <IconButton
+              icon="chevronLeft"
+              size="md"
+              label={actions('previous')}
+              className={cn(TRANSFORMATION_STYLES.arrow, TRANSFORMATION_STYLES.arrowLeft)}
+              onClick={() => goTo(index - 1)}
+            />
+            <IconButton
+              icon="chevronRight"
+              size="md"
+              label={actions('next')}
+              className={cn(TRANSFORMATION_STYLES.arrow, TRANSFORMATION_STYLES.arrowRight)}
+              onClick={() => goTo(index + 1)}
+            />
           </div>
 
           <div className={TRANSFORMATION_STYLES.controls}>
@@ -174,23 +193,6 @@ export const TransformationSection = ({
                 total: String(items.length),
               })}
             </p>
-
-            <div className={TRANSFORMATION_STYLES.arrows}>
-              <IconButton
-                icon="chevronLeft"
-                variant="secondary"
-                size="sm"
-                label={actions('previous')}
-                onClick={() => goTo(index - 1)}
-              />
-              <IconButton
-                icon="chevronRight"
-                variant="secondary"
-                size="sm"
-                label={actions('next')}
-                onClick={() => goTo(index + 1)}
-              />
-            </div>
           </div>
         </div>
       </Container>

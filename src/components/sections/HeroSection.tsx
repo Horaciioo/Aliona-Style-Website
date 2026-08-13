@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from 'next-intl'
 
 import { ActionLink } from '@/components/elements/actions/ActionLink'
+import { Icon } from '@/components/elements/media/Icon'
 import { Picture } from '@/components/elements/media/Picture'
 import { Heading } from '@/components/elements/typography/Heading'
 import { Container } from '@/components/structures/layout/Container'
@@ -58,9 +59,7 @@ export const HeroSection = ({ className }: Styleable) => {
       <Container width="wide">
         <div className={HERO_STYLES.grid}>
           <div className={HERO_STYLES.body}>
-            <p className={cn(HERO_STYLES.label, MOTION.rise)}>{t('overline')}</p>
-
-            <Heading level={1} className={HERO_STYLES.title}>
+            <Heading level={1} className={cn(HERO_STYLES.title, MOTION.rise)}>
               {t('title')}
             </Heading>
 
@@ -68,7 +67,7 @@ export const HeroSection = ({ className }: Styleable) => {
               <ActionLink route={callToAction} size="lg" icon="arrowRight" iconPosition="right">
                 {actions(NavigationService.ctaActionOf(callToAction))}
               </ActionLink>
-              <ActionLink href={NavigationService.anchorOf('pricing')} variant="link">
+              <ActionLink route="services" variant="link">
                 {t('secondary')}
               </ActionLink>
             </div>
@@ -88,7 +87,16 @@ export const HeroSection = ({ className }: Styleable) => {
           {facts.map((fact) => (
             <div key={fact.id} className={HERO_STYLES.fact}>
               <dt className={HERO_STYLES.factLabel}>{t(`facts.${fact.id}.label`)}</dt>
-              <dd className={HERO_STYLES.factValue}>{fact.value}</dd>
+              {fact.id === 'phone' ? (
+                <dd className={HERO_STYLES.factValue}>
+                  <a href={NavigationService.telOf(identity.phone)} className={HERO_STYLES.factPhone}>
+                    <Icon name="phone" size="xs" />
+                    {fact.value}
+                  </a>
+                </dd>
+              ) : (
+                <dd className={HERO_STYLES.factValue}>{fact.value}</dd>
+              )}
             </div>
           ))}
         </dl>

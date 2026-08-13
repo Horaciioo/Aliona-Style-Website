@@ -30,6 +30,21 @@ export const TRANSITION_ALL = 'transition-all duration-base ease-out'
 export const DISABLED = 'disabled:pointer-events-none disabled:opacity-50'
 
 /**
+ * Animated gold underline, grows from the left on hover
+ * @type {string}
+ */
+
+export const UNDERLINE =
+  'relative after:absolute after:inset-x-0 after:h-px after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-base hover:after:scale-x-100'
+
+/**
+ * Underline held open
+ * @type {string}
+ */
+
+export const UNDERLINE_ACTIVE = 'after:scale-x-100'
+
+/**
  * Tone and size order
  * @type {Tone[]}
  */
@@ -151,8 +166,8 @@ export const ALIGNMENTS: Record<Alignment, string> = {
 
 export const GAPS: Record<Size, string> = {
   sm: 'gap-2',
-  md: 'gap-4',
-  lg: 'gap-8',
+  md: 'gap-3.5',
+  lg: 'gap-6',
 }
 
 /**
@@ -161,9 +176,9 @@ export const GAPS: Record<Size, string> = {
  */
 
 export const SECTION_SPACING: Record<Size, string> = {
-  sm: 'py-20 sm:py-28',
-  md: 'py-28 sm:py-40',
-  lg: 'py-36 sm:py-56',
+  sm: 'py-16 sm:py-24',
+  md: 'py-24 sm:py-32',
+  lg: 'py-28 sm:py-44',
 }
 
 /**

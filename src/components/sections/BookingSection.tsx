@@ -143,18 +143,14 @@ export const BookingSection = () => {
   // Booking off falls back to the phone, the salon may not run a shared diary yet
   if (!ConfigurationService.isEnabled('appointmentBooking')) {
     return (
-      <Section anchor="booking" overline={t('overline')} title={t('title')}>
+      <Section anchor="booking" title={t('title')}>
         <Alert tone="info" icon="phone" title={t('disabled')} />
       </Section>
     )
   }
 
   return (
-    <Section
-      anchor="booking"
-      overline={t('overline')}
-      title={t('title')}
-      description={t('description')}>
+    <Section anchor="booking" title={t('title')} description={t('description')}>
       <div className={BOOKING_STYLES.frame}>
         <div className={BOOKING_STYLES.calendar}>
           <div className={BOOKING_STYLES.panel}>
@@ -213,8 +209,13 @@ export const BookingSection = () => {
             </div>
           </div>
 
-          <ActionLink route="contact" variant="ghost" size="sm" className={BOOKING_STYLES.aside}>
-            {actions('contact')}
+          <ActionLink
+            route="contact"
+            variant="outline"
+            size="md"
+            icon="mail"
+            className="self-center">
+            {t('contactPrompt')}
           </ActionLink>
         </div>
 

@@ -3,10 +3,13 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
+// The dev bundler compiles modules through eval
+const DEVELOPMENT_SOURCES = process.env.NODE_ENV === 'production' ? '' : ` 'unsafe-eval'`
+
 // Third-party script/beacon origins (analytics, embedded map)
 const CONTENT_SECURITY_POLICY = [
   `default-src 'self'`,
-  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://va.vercel-scripts.com`,
+  `script-src 'self' 'unsafe-inline'${DEVELOPMENT_SOURCES} https://www.googletagmanager.com https://va.vercel-scripts.com`,
   `style-src 'self' 'unsafe-inline'`,
   `img-src 'self' data: https:`,
   `font-src 'self' data:`,

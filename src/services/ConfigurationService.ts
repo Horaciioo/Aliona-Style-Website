@@ -21,6 +21,15 @@ import mailProductionTemplate from '@/configurations/admins/templates/mail/mail.
 import mailReleaseTemplate from '@/configurations/admins/templates/mail/mail.release.json'
 import mailStagingTemplate from '@/configurations/admins/templates/mail/mail.staging.json'
 
+import calendarDevelopmentDefaults from '@/configurations/admins/defaults/calendar/calendar.development.json'
+import calendarProductionDefaults from '@/configurations/admins/defaults/calendar/calendar.production.json'
+import calendarReleaseDefaults from '@/configurations/admins/defaults/calendar/calendar.release.json'
+import calendarStagingDefaults from '@/configurations/admins/defaults/calendar/calendar.staging.json'
+import calendarDevelopmentTemplate from '@/configurations/admins/templates/calendar/calendar.development.json'
+import calendarProductionTemplate from '@/configurations/admins/templates/calendar/calendar.production.json'
+import calendarReleaseTemplate from '@/configurations/admins/templates/calendar/calendar.release.json'
+import calendarStagingTemplate from '@/configurations/admins/templates/calendar/calendar.staging.json'
+
 import seoDevelopmentDefaults from '@/configurations/admins/defaults/seo/seo.development.json'
 import seoProductionDefaults from '@/configurations/admins/defaults/seo/seo.production.json'
 import seoReleaseDefaults from '@/configurations/admins/defaults/seo/seo.release.json'
@@ -35,10 +44,13 @@ import siteProductionTemplate from '@/configurations/admins/templates/site/site.
 import siteReleaseTemplate from '@/configurations/admins/templates/site/site.release.json'
 import siteStagingTemplate from '@/configurations/admins/templates/site/site.staging.json'
 
+import booking from '@/configurations/booking.json'
 import features from '@/configurations/features.json'
 import identity from '@/configurations/identity.json'
 import localization from '@/configurations/localization.json'
+import media from '@/configurations/media.json'
 import navigation from '@/configurations/navigation.json'
+import pricing from '@/configurations/pricing.json'
 import seo from '@/configurations/seo.json'
 import site from '@/configurations/site.json'
 import social from '@/configurations/social.json'
@@ -52,12 +64,14 @@ import { EnvironmentService } from '@/services/EnvironmentService'
 import { LoggerService } from '@/services/LoggerService'
 import type {
   AnalyticsEnvironmentConfig,
+  CalendarEnvironmentConfig,
   EnvironmentKey,
   EnvironmentManifest,
   MailEnvironmentConfig,
   SeoEnvironmentConfig,
   SiteEnvironmentConfig,
 } from '@/types/environment'
+import type { PricingCatalogue } from '@/types/content'
 import { isDefined } from '@/utils/guards'
 
 const MANIFESTS: Record<EnvironmentKey, EnvironmentManifest> = {
@@ -94,6 +108,23 @@ const MAIL_TEMPLATES: Record<EnvironmentKey, { apiKey: string; from: string; to:
   staging: mailStagingTemplate,
   release: mailReleaseTemplate,
   production: mailProductionTemplate,
+}
+
+const CALENDAR_DEFAULTS: Record<EnvironmentKey, CalendarEnvironmentConfig> = {
+  development: calendarDevelopmentDefaults,
+  staging: calendarStagingDefaults,
+  release: calendarReleaseDefaults,
+  production: calendarProductionDefaults,
+}
+
+const CALENDAR_TEMPLATES: Record<
+  EnvironmentKey,
+  { calendarId: string; clientEmail: string; privateKey: string }
+> = {
+  development: calendarDevelopmentTemplate,
+  staging: calendarStagingTemplate,
+  release: calendarReleaseTemplate,
+  production: calendarProductionTemplate,
 }
 
 const SEO_DEFAULTS: Record<EnvironmentKey, SeoEnvironmentConfig> = {
@@ -216,6 +247,33 @@ const readMailConfig = (env: EnvironmentKey): MailEnvironmentConfig => {
   }
 }
 
+const readCalendarConfig = (env: EnvironmentKey): CalendarEnvironmentConfig => {
+  const defaults = CALENDAR_DEFAULTS[env]
+  const template = CALENDAR_TEMPLATES[env]
+
+  return {
+    calendarId: readField(
+      'calendar',
+      'calendarId',
+      defaults.calendarId,
+      resolveTemplate(template.calendarId)
+    ),
+    clientEmail: readField(
+      'calendar',
+      'clientEmail',
+      defaults.clientEmail,
+      resolveTemplate(template.clientEmail)
+    ),
+    // Escaped newlines survive an environment variable
+    privateKey: readField(
+      'calendar',
+      'privateKey',
+      defaults.privateKey,
+      resolveTemplate(template.privateKey)
+    ).replace(/\\n/g, '\n'),
+  }
+}
+
 const readSeoConfig = (env: EnvironmentKey): SeoEnvironmentConfig => {
   const defaults = SEO_DEFAULTS[env]
 
@@ -240,6 +298,9 @@ export const ConfigurationService = {
   storage: storageSettings,
   validation,
   timings,
+  booking,
+  media,
+  pricing: pricing as PricingCatalogue,
 
   // Environment values
   environment: {
@@ -249,6 +310,7 @@ export const ConfigurationService = {
     analytics: readAnalyticsConfig(currentEnvironment),
     mail: readMailConfig(currentEnvironment),
     seo: readSeoConfig(currentEnvironment),
+    calendar: readCalendarConfig(currentEnvironment),
 
     /**
      * Absolute URL builder
@@ -275,7 +337,7 @@ export const ConfigurationService = {
   socialLinks: (): { id: keyof typeof social; href: string }[] =>
     Object.entries(social)
       .filter(([, href]) => isDefined(href))
-      .map(([id, href]) => ({ id: id as keyof typeof social, href: href as string })),
+      .map(([id, href]) => ({ id: id as keyof typeof social, href: String(href) })),
 
   /**
    * Copyright years

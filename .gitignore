@@ -2,6 +2,7 @@
 node_modules
 .pnp
 .pnp.js
+.yarn/install-state.gz
 
 # Testing
 coverage
@@ -15,9 +16,13 @@ dist
 
 # Misc
 .DS_Store
-.env
+*.env
 .env.local
 .env.*.local
+.env.example
+
+# Claude Code
+.claude/skills/
 
 # Debug
 npm-debug.log*
@@ -31,3 +36,7 @@ yarn-error.log*
 *.swo
 *~
 .DS_Store
+
+# Scripts
+guide/
+scripts/

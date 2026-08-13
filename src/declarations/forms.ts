@@ -44,7 +44,7 @@ export const FIELD_INPUT_TYPES: Partial<Record<keyof typeof FIELD_TYPES, string>
 export const FORMS = {
   contact: {
     id: 'contact',
-    submitAction: 'contact',
+    submitAction: 'submit',
     redirectRouteId: 'thankYou',
     fields: [
       {
@@ -79,9 +79,9 @@ export const FORMS = {
         required: true,
         icon: 'tag',
         options: [
+          { value: 'colorAdvice', translationKey: 'colorAdvice' },
+          { value: 'bridal', translationKey: 'bridal' },
           { value: 'information', translationKey: 'information' },
-          { value: 'quote', translationKey: 'quote' },
-          { value: 'partnership', translationKey: 'partnership' },
           { value: 'other', translationKey: 'other' },
         ],
       },
@@ -101,10 +101,28 @@ export const FORMS = {
       },
     ],
   },
-  newsletter: {
-    id: 'newsletter',
-    submitAction: 'subscribeNewsletter',
+  bookAppointment: {
+    id: 'bookAppointment',
+    submitAction: 'bookAppointment',
     fields: [
+      {
+        name: 'fullName',
+        type: 'text',
+        required: true,
+        minLength: LIMITS.name.min,
+        maxLength: LIMITS.name.max,
+        icon: 'user',
+        autoComplete: 'name',
+      },
+      {
+        name: 'phone',
+        type: 'phone',
+        required: true,
+        pattern: 'phone',
+        maxLength: LIMITS.phone.max,
+        icon: 'phone',
+        autoComplete: 'tel',
+      },
       {
         name: 'email',
         type: 'email',
@@ -113,6 +131,30 @@ export const FORMS = {
         maxLength: LIMITS.email.max,
         icon: 'mail',
         autoComplete: 'email',
+        wide: true,
+      },
+      {
+        name: 'service',
+        type: 'select',
+        required: true,
+        icon: 'scissors',
+        wide: true,
+        options: [
+          { value: 'cutBlowDry', translationKey: 'cutBlowDry' },
+          { value: 'blowDry', translationKey: 'blowDry' },
+          { value: 'coloration', translationKey: 'coloration' },
+          { value: 'airTouch', translationKey: 'airTouch' },
+          { value: 'highlights', translationKey: 'highlights' },
+          { value: 'perm', translationKey: 'perm' },
+          { value: 'weddingUpdo', translationKey: 'weddingUpdo' },
+          { value: 'men', translationKey: 'men' },
+          { value: 'children', translationKey: 'children' },
+        ],
+      },
+      {
+        name: 'note',
+        type: 'textarea',
+        maxLength: LIMITS.message.max,
         wide: true,
       },
     ],

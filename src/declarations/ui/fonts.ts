@@ -1,18 +1,17 @@
-import { Inter, Sora } from 'next/font/google'
+import { Fraunces, Manrope } from 'next/font/google'
 
-/**
- * Project fonts
- * @type {Object}
- */
-
-const sans = Inter({
+// Body typeface
+const sans = Manrope({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
 })
 
-const display = Sora({
+// Editorial serif
+const display = Fraunces({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap',
 })

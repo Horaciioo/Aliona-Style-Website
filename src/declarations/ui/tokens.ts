@@ -58,10 +58,11 @@ export const SIZES: Size[] = ['sm', 'md', 'lg']
 
 export const SURFACES = {
   page: 'bg-background',
-  card: 'bg-surface border border-border rounded-lg',
-  raised: 'bg-background border border-border rounded-lg shadow-sm',
-  inset: 'bg-surface-strong rounded-md',
+  card: 'bg-surface/70 border border-border/80 rounded-lg shadow-card',
+  raised: 'bg-surface border border-border-strong/50 rounded-lg shadow-lift',
+  inset: 'bg-surface-strong/50 rounded-md',
   outline: 'border border-border rounded-lg',
+  glass: 'surface-glass rounded-lg',
   ghost: 'bg-transparent',
 } as const
 
@@ -160,9 +161,9 @@ export const GAPS: Record<Size, string> = {
  */
 
 export const SECTION_SPACING: Record<Size, string> = {
-  sm: 'py-10 sm:py-12',
-  md: 'py-16 sm:py-20',
-  lg: 'py-24 sm:py-32',
+  sm: 'py-20 sm:py-28',
+  md: 'py-28 sm:py-40',
+  lg: 'py-36 sm:py-56',
 }
 
 /**
@@ -193,6 +194,7 @@ export const CONTAINER_WIDTHS = {
   prose: 'max-w-prose',
   narrow: 'max-w-3xl',
   default: 'max-w-container',
+  wide: 'max-w-wide',
   full: 'max-w-none',
 } as const
 
@@ -213,4 +215,44 @@ export const LAYERS = {
   dropdown: 'z-40',
   overlay: 'z-50',
   toast: 'z-[60]',
+} as const
+
+/**
+ * Motion classes
+ * @type {Object}
+ */
+
+export const MOTION = {
+  reveal: 'reveal',
+  revealSoft: 'reveal-soft',
+  revealWipe: 'reveal-wipe',
+  revealLeft: 'reveal-left',
+  revealRight: 'reveal-right',
+  revealZoom: 'reveal-zoom',
+  revealStagger: 'reveal-stagger',
+  // Photographs surface slowly, over the whole travel
+  revealPicture: 'reveal-picture',
+  rise: 'animate-rise',
+  drift: 'animate-drift',
+  sheen: 'surface-sheen animate-shine',
+  // Endless horizontal travel, paused while the viewport is hovered
+  marquee: 'marquee-track animate-marquee',
+  marqueeViewport: 'marquee',
+} as const
+
+/**
+ * Editorial picture frame
+ * @type {string}
+ */
+
+export const MEDIA_FRAME = 'media-editorial relative overflow-hidden'
+
+/**
+ * Gilded ornaments
+ * @type {Object}
+ */
+
+export const GILDING = {
+  text: 'text-gilded',
+  rule: 'h-px rule-gold',
 } as const

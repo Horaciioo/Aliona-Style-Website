@@ -1,70 +1,57 @@
-import type {
-  FaqItem,
-  FeatureItem,
-  MediaItem,
-  PricingItem,
-  StatItem,
-  TestimonialItem,
-} from '@/types/content'
+import type { FaqItem, FeatureItem, TestimonialItem, TransformationItem } from '@/types/content'
+
+// Highest star a review can carry
+export const MAX_RATING = 5
 
 /**
- * Placeholder image
- * @type {string}
- */
-
-export const PLACEHOLDER_IMAGE = '/images/placeholder.svg'
-
-/**
- * Features
+ * Signature services
  * @type {FeatureItem[]}
  */
 
 export const FEATURES: FeatureItem[] = [
-  { id: 'quality', translationKey: 'quality', icon: 'sparkles', tone: 'primary' },
-  { id: 'speed', translationKey: 'speed', icon: 'zap', tone: 'accent' },
-  { id: 'support', translationKey: 'support', icon: 'users', tone: 'info' },
-  { id: 'security', translationKey: 'security', icon: 'shield', tone: 'success' },
-  { id: 'flexibility', translationKey: 'flexibility', icon: 'trend', tone: 'warning' },
-  { id: 'transparency', translationKey: 'transparency', icon: 'scale', tone: 'neutral' },
+  { id: 'colorimetry', translationKey: 'colorimetry', icon: 'palette', tone: 'primary' },
+  { id: 'airTouch', translationKey: 'airTouch', icon: 'wind', tone: 'accent' },
+  { id: 'cut', translationKey: 'cut', icon: 'scissors', tone: 'neutral' },
+  { id: 'bridal', translationKey: 'bridal', icon: 'crown', tone: 'primary' },
+  { id: 'care', translationKey: 'care', icon: 'flower', tone: 'success' },
+  { id: 'diagnosis', translationKey: 'diagnosis', icon: 'droplet', tone: 'info' },
 ]
 
 /**
- * Statistics
- * @type {StatItem[]}
- */
-
-export const STATS: StatItem[] = [
-  { id: 'clients', translationKey: 'clients', value: 240, format: 'count', icon: 'users' },
-  { id: 'projects', translationKey: 'projects', value: 128, format: 'count', icon: 'sparkles' },
-  {
-    id: 'satisfaction',
-    translationKey: 'satisfaction',
-    value: 0.98,
-    format: 'percent',
-    icon: 'heart',
-  },
-  { id: 'experience', translationKey: 'experience', value: 12, format: 'count', icon: 'clock' },
-]
-
-/**
- * Response and delivery promises
+ * Diplomas and certificates
  * @type {FeatureItem[]}
  */
 
-export const PROMISES: FeatureItem[] = [
-  { id: 'response', translationKey: 'response', icon: 'clock', tone: 'primary' },
-  { id: 'delivery', translationKey: 'delivery', icon: 'send', tone: 'accent' },
+export const CREDENTIALS: FeatureItem[] = [
+  { id: 'cap', translationKey: 'cap', icon: 'graduation', tone: 'primary' },
+  { id: 'professionalCertificate', translationKey: 'professionalCertificate', icon: 'award' },
+  { id: 'bioAesthetics', translationKey: 'bioAesthetics', icon: 'flower', tone: 'accent' },
 ]
 
 /**
- * Testimonials
+ * Reviews left on Google
  * @type {TestimonialItem[]}
  */
 
 export const TESTIMONIALS: TestimonialItem[] = [
-  { id: 'first', translationKey: 'first', rating: 5 },
-  { id: 'second', translationKey: 'second', rating: 5 },
-  { id: 'third', translationKey: 'third', rating: 4 },
+  { id: 'colourHold', translationKey: 'colourHold', rating: 5 },
+  { id: 'airTouch', translationKey: 'airTouch', rating: 5 },
+  { id: 'bridal', translationKey: 'bridal', rating: 5 },
+  { id: 'listening', translationKey: 'listening', rating: 5 },
+  { id: 'firstVisit', translationKey: 'firstVisit', rating: 5 },
+  { id: 'kids', translationKey: 'kids', rating: 4 },
+]
+
+/**
+ * Before and after pairs, drawn until the photographs arrive
+ * @type {TransformationItem[]}
+ */
+
+export const TRANSFORMATIONS: TransformationItem[] = [
+  { id: 'brownToBlonde', translationKey: 'brownToBlonde' },
+  { id: 'regrowth', translationKey: 'regrowth' },
+  { id: 'bobCut', translationKey: 'bobCut' },
+  { id: 'bridalUpdo', translationKey: 'bridalUpdo' },
 ]
 
 /**
@@ -73,41 +60,11 @@ export const TESTIMONIALS: TestimonialItem[] = [
  */
 
 export const FAQ: FaqItem[] = [
-  { id: 'delay', translationKey: 'delay' },
-  { id: 'price', translationKey: 'price' },
-  { id: 'process', translationKey: 'process' },
-  { id: 'support', translationKey: 'support' },
+  { id: 'duration', translationKey: 'duration' },
+  { id: 'colorChange', translationKey: 'colorChange' },
+  { id: 'payment', translationKey: 'payment' },
   { id: 'cancel', translationKey: 'cancel' },
-]
-
-/**
- * Pricing plans
- * @type {PricingItem[]}
- */
-
-export const PRICING: PricingItem[] = [
-  {
-    id: 'starter',
-    translationKey: 'starter',
-    amountCents: 49000,
-    period: 'once',
-    includedKeys: ['scope', 'revisions', 'delivery'],
-  },
-  {
-    id: 'standard',
-    translationKey: 'standard',
-    amountCents: 129000,
-    period: 'once',
-    featured: true,
-    includedKeys: ['scope', 'revisions', 'delivery', 'support'],
-  },
-  {
-    id: 'premium',
-    translationKey: 'premium',
-    amountCents: 249000,
-    period: 'once',
-    includedKeys: ['scope', 'revisions', 'delivery', 'support', 'training'],
-  },
+  { id: 'access', translationKey: 'access' },
 ]
 
 /**
@@ -126,9 +83,3 @@ export const LEGAL_SECTIONS = {
  */
 
 export type LegalPage = keyof typeof LEGAL_SECTIONS
-
-export const GALLERY: MediaItem[] = Array.from({ length: 6 }, (_, index) => ({
-  id: `item-${index + 1}`,
-  src: PLACEHOLDER_IMAGE,
-  translationKey: `item${index + 1}`,
-}))

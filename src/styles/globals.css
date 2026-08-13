@@ -11,19 +11,59 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--layout-header) + 3rem);
     -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-background font-sans text-foreground antialiased;
+    position: relative;
+  }
+
+  /* Stacked light pools over the stone, they give the page its depth */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-color: rgb(var(--color-background));
+    background-image:
+      radial-gradient(70rem 48rem at 78% -8%, rgb(var(--color-gold) / 0.11), transparent 62%),
+      radial-gradient(58rem 42rem at 8% 32%, rgb(var(--color-champagne) / 0.05), transparent 66%),
+      radial-gradient(
+        80rem 60rem at 50% 108%,
+        rgb(var(--color-primary-soft) / 0.55),
+        transparent 64%
+      ),
+      linear-gradient(
+        180deg,
+        rgb(var(--color-overlay) / 0.5),
+        transparent 28%,
+        rgb(var(--color-overlay) / 0.7)
+      ),
+      url('/images/marble.svg');
+    background-size: auto, auto, auto, auto, cover;
+    background-position: center;
+  }
+
+  /* Grain on its own layer so the stone underneath stays smooth */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary;
+    @apply outline-1 outline-offset-4 outline-primary;
   }
 
   ::selection {
-    @apply bg-primary/20;
+    @apply bg-primary/30;
   }
 
   h1,
@@ -36,6 +76,19 @@
   p {
     @apply text-pretty;
   }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgb(var(--color-overlay));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 3px solid rgb(var(--color-overlay));
+    background-color: rgb(var(--color-border-strong));
+  }
 }
 
 @layer components {
@@ -47,6 +100,257 @@
       rgb(var(--color-surface-strong)) 100%
     );
     background-size: 200% 100%;
+  }
+
+  /* Whitish-gold liquid glass, laid over the marble */
+  .surface-glass {
+    border: 1px solid rgb(var(--color-champagne) / 0.14);
+    background-color: rgb(var(--color-surface) / 0.42);
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--color-ivory) / 0.06),
+      rgb(var(--color-ivory) / 0.01) 46%,
+      rgb(var(--color-gold) / 0.04)
+    );
+    box-shadow: var(--shadow-glass);
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+  }
+
+  /* Travelling light band, the element carries animate-shine */
+  .surface-sheen {
+    background-image: linear-gradient(
+      104deg,
+      transparent 40%,
+      rgb(var(--color-ivory) / 0.12) 47%,
+      rgb(var(--color-champagne) / 0.2) 51%,
+      transparent 60%
+    );
+    background-repeat: no-repeat;
+    background-size: 240% 100%;
+  }
+
+  .text-gilded {
+    background-image: linear-gradient(
+      100deg,
+      rgb(var(--color-gold)) 0%,
+      rgb(var(--color-champagne)) 40%,
+      rgb(var(--color-gold)) 74%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .rule-gold {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgb(var(--color-gold) / 0.55) 26%,
+      rgb(var(--color-champagne) / 0.7) 50%,
+      rgb(var(--color-gold) / 0.55) 74%,
+      transparent
+    );
+  }
+
+  /* Both ends dissolve, the band has no visible start */
+  .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+  }
+
+  /* Held still while a review is being read */
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* One photographic grade for every picture, whatever the source */
+  .media-editorial img {
+    filter: grayscale(0.55) contrast(1.06) brightness(0.9) sepia(0.12);
+    transition:
+      filter var(--duration-slow) ease-out,
+      transform var(--duration-slow) ease-out;
+  }
+
+  .media-editorial::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(
+      to top,
+      rgb(var(--color-overlay) / 0.55),
+      transparent 52%,
+      rgb(var(--color-gold) / 0.05)
+    );
+  }
+
+  .media-editorial:hover img {
+    filter: grayscale(0.12) contrast(1.04) brightness(1) sepia(0.04);
+    transform: scale(1.04);
+  }
+}
+
+main > section {
+  position: relative;
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(3.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal-side {
+  from {
+    opacity: 0;
+    transform: translateX(var(--reveal-offset, -2.5rem));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes reveal-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Held blurred and dim, it resolves as the picture travels up */
+@keyframes reveal-picture {
+  from {
+    opacity: 0;
+    transform: scale(1.09);
+    filter: blur(1.25rem) saturate(0.4);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0) saturate(1);
+  }
+}
+
+/* Scroll driven, no observer: browsers without support keep everything visible */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 92%;
+    }
+
+    .reveal-soft {
+      animation: reveal-fade linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 76%;
+    }
+
+    .reveal-wipe {
+      animation: reveal-wipe linear both;
+      animation-timeline: view();
+      animation-range: entry 4% entry 96%;
+    }
+
+    .reveal-left,
+    .reveal-right {
+      animation: reveal-side linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 88%;
+    }
+
+    .reveal-right {
+      --reveal-offset: 2.5rem;
+    }
+
+    .reveal-zoom {
+      animation: reveal-scale linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 90%;
+    }
+
+    /* Runs past the entry, so the image keeps resolving well inside the fold */
+    .reveal-picture {
+      animation: reveal-picture linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 38%;
+    }
+
+    /* Children surface one after another as the block travels up */
+    .reveal-stagger > * {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 84%;
+    }
+
+    .reveal-stagger > *:nth-child(2) {
+      animation-range: entry 6% entry 90%;
+    }
+
+    .reveal-stagger > *:nth-child(3) {
+      animation-range: entry 12% entry 96%;
+    }
+
+    .reveal-stagger > *:nth-child(4) {
+      animation-range: entry 18% entry 102%;
+    }
+
+    .reveal-stagger > *:nth-child(n + 5) {
+      animation-range: entry 24% entry 108%;
+    }
+  }
+}
+
+/* Standing still, the band becomes a plain scroller */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .marquee-track {
+    animation: none;
   }
 }
 

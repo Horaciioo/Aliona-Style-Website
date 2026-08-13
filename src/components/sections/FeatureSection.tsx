@@ -2,50 +2,76 @@
 
 import { useTranslations } from 'next-intl'
 
-import { Icon } from '@/components/elements/media/Icon'
+import { Picture } from '@/components/elements/media/Picture'
+import { Heading } from '@/components/elements/typography/Heading'
 import { Text } from '@/components/elements/typography/Text'
-import { Card } from '@/components/structures/layout/Card'
-import { Grid } from '@/components/structures/layout/Grid'
-import { Section } from '@/components/structures/layout/Section'
+import { Container } from '@/components/structures/layout/Container'
 import { FEATURES } from '@/declarations/content'
-import { TONE_SOFT } from '@/declarations/ui/tokens'
-import { STAT_STYLES } from '@/declarations/ui/variants'
+import { SECTION_ANCHORS } from '@/declarations/routes'
+import { SECTION_SPACING } from '@/declarations/ui/tokens'
+import { CRAFT_STYLES, EDITORIAL_STYLES } from '@/declarations/ui/variants'
+import { ConfigurationService } from '@/services/ConfigurationService'
+import type { Styleable } from '@/types/common'
 import type { FeatureItem } from '@/types/content'
 import { cn } from '@/utils/classnames'
 
-export interface FeatureSectionProps {
+const { media, viewport } = ConfigurationService
+
+const INDEX_PAD = 2
+
+export interface FeatureSectionProps extends Styleable {
   items?: FeatureItem[]
 }
 
 /**
- * Feature section
+ * Craft section
  * @param {FeatureSectionProps} props - Feature section props
  * @return {JSX.Element} - Rendered section
  */
 
-export const FeatureSection = ({ items = FEATURES }: FeatureSectionProps) => {
+export const FeatureSection = ({ items = FEATURES, className }: FeatureSectionProps) => {
   const t = useTranslations('sections.features')
 
   return (
-    <Section
-      anchor="features"
-      overline={t('overline')}
-      title={t('title')}
-      description={t('description')}
-      centered>
-      <Grid columns={3}>
-        {items.map((item) => (
-          <Card key={item.id}>
-            <span className={cn(STAT_STYLES.iconTile, TONE_SOFT[item.tone ?? 'primary'])}>
-              <Icon name={item.icon} size="sm" />
-            </span>
-            <Text appearance="blockTitle" as="h3">
-              {t(`items.${item.translationKey}.title`)}
-            </Text>
-            <Text appearance="description">{t(`items.${item.translationKey}.description`)}</Text>
-          </Card>
-        ))}
-      </Grid>
-    </Section>
+    <section id={SECTION_ANCHORS.features} className={cn(SECTION_SPACING.lg, className)}>
+      <Container width="wide">
+        <div className={EDITORIAL_STYLES.frame}>
+          <Picture
+            src={media.cut.src}
+            alt={t('imageAlt')}
+            ratio="landscape"
+            sizes={`(max-width: ${viewport.breakpoints.lg}px) 100vw, 50vw`}
+            className={EDITORIAL_STYLES.figure}
+          />
+
+          <div className={EDITORIAL_STYLES.body}>
+            <p className={EDITORIAL_STYLES.label}>
+              <span className={EDITORIAL_STYLES.labelRule} aria-hidden="true" />
+              {t('overline')}
+            </p>
+            <Heading level={2}>{t('title')}</Heading>
+            <Text appearance="lead">{t('description')}</Text>
+          </div>
+        </div>
+
+        <ol className={cn(CRAFT_STYLES.list, 'mt-24')}>
+          {items.map((item, index) => (
+            <li key={item.id} className={CRAFT_STYLES.item}>
+              <span className={CRAFT_STYLES.index} aria-hidden="true">
+                {String(index + 1).padStart(INDEX_PAD, '0')}
+              </span>
+              <div className={CRAFT_STYLES.body}>
+                <Text appearance="blockTitle" as="h3">
+                  {t(`items.${item.translationKey}.title`)}
+                </Text>
+                <Text appearance="description">
+                  {t(`items.${item.translationKey}.description`)}
+                </Text>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </section>
   )
 }

@@ -1,78 +1,97 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 import { ActionLink } from '@/components/elements/actions/ActionLink'
 import { Picture } from '@/components/elements/media/Picture'
 import { Heading } from '@/components/elements/typography/Heading'
-import { Text } from '@/components/elements/typography/Text'
 import { Container } from '@/components/structures/layout/Container'
-import { PLACEHOLDER_IMAGE } from '@/declarations/content'
 import { SECTION_ANCHORS } from '@/declarations/routes'
-import { SECTION_SPACING } from '@/declarations/ui/tokens'
+import { MOTION } from '@/declarations/ui/tokens'
+import { HERO_STYLES } from '@/declarations/ui/variants'
+import { AppointmentService } from '@/services/AppointmentService'
 import { ConfigurationService } from '@/services/ConfigurationService'
+import { FormatService } from '@/services/FormatService'
 import { NavigationService } from '@/services/NavigationService'
 import type { Styleable } from '@/types/common'
-import type { RouteId } from '@/types/navigation'
 import { cn } from '@/utils/classnames'
 
-const { lg } = ConfigurationService.viewport.breakpoints
-
-export interface HeroSectionProps extends Styleable {
-  // Primary CTA route
-  primaryRoute?: RouteId
-  secondaryRoute?: RouteId
-  image?: string
-}
+const { identity, media, viewport } = ConfigurationService
 
 /**
  * Hero section
- * @param {HeroSectionProps} props - Hero section props
+ * @param {Styleable} props - Hero section props
  * @return {JSX.Element} - Rendered hero
  */
 
-export const HeroSection = ({
-  primaryRoute,
-  secondaryRoute,
-  image = PLACEHOLDER_IMAGE,
-  className,
-}: HeroSectionProps) => {
+export const HeroSection = ({ className }: Styleable) => {
   const t = useTranslations('sections.hero')
   const actions = useTranslations('actions')
-  const primary = primaryRoute ?? NavigationService.callToActionRoute()
+  const callToAction = NavigationService.callToActionRoute()
+
+  // Compact opening line, the day by day table lives in the contact section
+  const order = AppointmentService.weekdayOrder()
+  const weekdays = FormatService.for(useLocale()).weekdays('long')
+  const nameOf = (day?: number): string =>
+    day === undefined ? '' : (weekdays[order.indexOf(day)] ?? '')
+  const [opening] = AppointmentService.openingSchedule()
+
+  const facts = [
+    {
+      id: 'address',
+      value: `${identity.address.street}, ${identity.address.postalCode} ${identity.address.city}`,
+    },
+    {
+      id: 'hours',
+      value: t('facts.hours.value', {
+        from: nameOf(opening?.days[0]),
+        to: nameOf(opening?.days.at(-1)),
+        opensAt: opening?.opensAt ?? '',
+        closesAt: opening?.closesAt ?? '',
+      }),
+    },
+    { id: 'phone', value: identity.phoneDisplay },
+  ]
 
   return (
-    <section id={SECTION_ANCHORS.hero} className={cn(SECTION_SPACING.lg, className)}>
-      <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div className="flex flex-col gap-5">
-            <Text appearance="overline" as="p">
-              {t('overline')}
-            </Text>
-            <Heading level={1} className="text-4xl sm:text-5xl lg:text-6xl">
+    <section id={SECTION_ANCHORS.hero} className={cn(HERO_STYLES.frame, className)}>
+      <Container width="wide">
+        <div className={HERO_STYLES.grid}>
+          <div className={HERO_STYLES.body}>
+            <p className={cn(HERO_STYLES.label, MOTION.rise)}>{t('overline')}</p>
+
+            <Heading level={1} className={HERO_STYLES.title}>
               {t('title')}
             </Heading>
-            <Text appearance="lead">{t('description')}</Text>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <ActionLink route={primary} size="lg" icon="arrowRight" iconPosition="right">
-                {actions(NavigationService.ctaActionOf(primary))}
+
+            <div className={HERO_STYLES.actions}>
+              <ActionLink route={callToAction} size="lg" icon="arrowRight" iconPosition="right">
+                {actions(NavigationService.ctaActionOf(callToAction))}
               </ActionLink>
-              {secondaryRoute && (
-                <ActionLink route={secondaryRoute} variant="secondary" size="lg">
-                  {actions(NavigationService.ctaActionOf(secondaryRoute))}
-                </ActionLink>
-              )}
+              <ActionLink href={NavigationService.anchorOf('pricing')} variant="link">
+                {t('secondary')}
+              </ActionLink>
             </div>
           </div>
+
           <Picture
-            src={image}
+            src={media.portrait.src}
             alt={t('imageAlt')}
-            ratio="landscape"
+            ratio="portrait"
             priority
-            sizes={`(max-width: ${lg}px) 100vw, 50vw`}
-            className="rounded-xl shadow-md"
+            sizes={`(max-width: ${viewport.breakpoints.lg}px) 100vw, 45vw`}
+            className={HERO_STYLES.figure}
           />
         </div>
+
+        <dl className={cn(HERO_STYLES.facts, MOTION.revealSoft)}>
+          {facts.map((fact) => (
+            <div key={fact.id} className={HERO_STYLES.fact}>
+              <dt className={HERO_STYLES.factLabel}>{t(`facts.${fact.id}.label`)}</dt>
+              <dd className={HERO_STYLES.factValue}>{fact.value}</dd>
+            </div>
+          ))}
+        </dl>
       </Container>
     </section>
   )

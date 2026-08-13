@@ -16,12 +16,11 @@
     "capital": null
   },
   "openingHours": [
-    { "day": 1, "opensAt": "09:00", "closesAt": "20:00" },
-    { "day": 2, "opensAt": "09:00", "closesAt": "20:00" },
-    { "day": 3, "opensAt": "09:00", "closesAt": "20:00" },
-    { "day": 4, "opensAt": "09:00", "closesAt": "20:00" },
-    { "day": 5, "opensAt": "09:00", "closesAt": "20:00" },
-    { "day": 6, "opensAt": "09:00", "closesAt": "20:00" }
+    { "day": 1, "opensAt": "09:00", "closesAt": "18:00" },
+    { "day": 2, "opensAt": "09:00", "closesAt": "18:00" },
+    { "day": 4, "opensAt": "09:00", "closesAt": "18:00" },
+    { "day": 5, "opensAt": "09:00", "closesAt": "18:00" },
+    { "day": 6, "opensAt": "09:00", "closesAt": "12:00" }
   ],
   "hosting": {
     "name": "Vercel Inc.",

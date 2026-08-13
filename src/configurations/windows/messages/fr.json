@@ -190,7 +190,8 @@
         "beard": "Barbe",
         "razorBeard": "Barbe au rasoir",
         "boy": "Garçon",
-        "girl": "Fille"
+        "girl": "Fille",
+        "specificCare": "Soins spécifiques"
       }
     },
     "credentials": {

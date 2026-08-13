@@ -190,7 +190,8 @@
         "beard": "Beard",
         "razorBeard": "Razor beard",
         "boy": "Boy",
-        "girl": "Girl"
+        "girl": "Girl",
+        "specificCare": "Specific treatment"
       }
     },
     "credentials": {

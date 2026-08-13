@@ -60,6 +60,10 @@
             { "id": "crafted", "amountCents": 9000 },
             { "id": "prestige", "amountCents": 12000 }
           ]
+        },
+        {
+          "id": "specificCare",
+          "amountCents": 1500
         }
       ]
     },

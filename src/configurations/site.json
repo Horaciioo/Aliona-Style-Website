@@ -1,11 +1,11 @@
 {
-  "name": "Template Website",
-  "shortName": "Template",
-  "domain": "example.com",
+  "name": "Aliona.Style",
+  "shortName": "Aliona",
+  "domain": "aliona-style.fr",
   "launchYear": 2026,
-  "themeColor": "#4f46e5",
+  "themeColor": "#2E2E2E",
   "logo": {
-    "symbol": "TW",
-    "image": null
+    "mark": { "src": "/images/aliona-logo.png", "width": 1272, "height": 962 },
+    "wordmark": { "src": "/images/aliona-logo-upsize.png", "width": 1394, "height": 543 }
   }
 }

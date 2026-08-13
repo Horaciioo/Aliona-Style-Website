@@ -1,8 +1,8 @@
 {
-  "header": ["home", "showcase", "contact"],
+  "header": ["services", "about", "works", "contact"],
   "footer": {
-    "site": ["home", "showcase", "contact"],
+    "site": ["home", "services", "about", "works", "appointment", "contact"],
     "legal": ["legalNotice", "privacyPolicy"]
   },
-  "callToAction": "contact"
+  "callToAction": "appointment"
 }

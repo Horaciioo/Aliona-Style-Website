@@ -1,26 +1,35 @@
 {
-  "legalName": "Template Company",
-  "tradeName": "Template Website",
-  "email": "contact@example.com",
-  "phone": "+33000000000",
+  "legalName": "Aliona Style",
+  "tradeName": "Aliona.Style",
+  "email": "contact@aliona-style.fr",
+  "phone": "+33646014705",
+  "phoneDisplay": "06 46 01 47 05",
   "address": {
-    "street": "1 rue de l'Exemple",
-    "postalCode": "00000",
-    "city": "Paris",
+    "street": "56 rue de la République",
+    "postalCode": "67800",
+    "city": "Hoenheim",
     "country": "FR"
   },
   "registration": {
-    "number": "000 000 000 00000",
-    "vat": "FR00000000000",
+    "number": "à renseigner",
+    "vat": "TVA non applicable, article 293 B du CGI",
     "capital": null
   },
+  "openingHours": [
+    { "day": 1, "opensAt": "09:00", "closesAt": "20:00" },
+    { "day": 2, "opensAt": "09:00", "closesAt": "20:00" },
+    { "day": 3, "opensAt": "09:00", "closesAt": "20:00" },
+    { "day": 4, "opensAt": "09:00", "closesAt": "20:00" },
+    { "day": 5, "opensAt": "09:00", "closesAt": "20:00" },
+    { "day": 6, "opensAt": "09:00", "closesAt": "20:00" }
+  ],
   "hosting": {
     "name": "Vercel Inc.",
     "address": "440 N Barranca Ave #4133, Covina, CA 91723, USA",
     "url": "https://vercel.com"
   },
   "publisher": {
-    "name": "Template Company",
-    "email": "legal@example.com"
+    "name": "Aliona",
+    "email": "contact@aliona-style.fr"
   }
 }

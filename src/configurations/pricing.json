@@ -1,0 +1,92 @@
+{
+  "lengths": ["short", "medium", "long"],
+  "groups": [
+    {
+      "id": "women",
+      "blocks": [
+        {
+          "id": "cutBlowDry",
+          "rates": { "short": 3000, "medium": 3500, "long": 4000 }
+        },
+        {
+          "id": "blowDry",
+          "rates": { "short": 2000, "medium": 2500, "long": 3000 }
+        },
+        {
+          "id": "coloration",
+          "entries": [
+            { "id": "color", "rates": { "short": 5000, "medium": 5500, "long": 6000 } },
+            { "id": "toner", "rates": { "short": 2000, "medium": 2500, "long": 3000 } }
+          ],
+          "extras": [{ "id": "extraDose", "rates": { "medium": 1000, "long": 1500 } }]
+        },
+        {
+          "id": "colorPackage",
+          "entries": [
+            { "id": "colorCutBlowDry", "rates": { "short": 6500, "medium": 7000, "long": 8000 } },
+            {
+              "id": "colorCutTonerBlowDry",
+              "rates": { "short": 7500, "medium": 8500, "long": 9500 }
+            }
+          ]
+        },
+        {
+          "id": "highlightsPackage",
+          "rates": { "short": 8000, "medium": 10000, "long": 12000 }
+        },
+        {
+          "id": "perm",
+          "rates": {
+            "short": 7000,
+            "medium": { "fromCents": 8000, "toCents": 8500 },
+            "long": 9000
+          }
+        },
+        {
+          "id": "airTouch",
+          "rates": {
+            "short": 9000,
+            "medium": { "fromCents": 12000 },
+            "long": { "fromCents": 15000 }
+          },
+          "extras": [
+            { "id": "fullBleach", "rates": { "short": 8000, "medium": 9000, "long": 12000 } }
+          ]
+        },
+        {
+          "id": "weddingUpdo",
+          "entries": [
+            { "id": "simple", "amountCents": 7000 },
+            { "id": "crafted", "amountCents": 9000 },
+            { "id": "prestige", "amountCents": 12000 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "men",
+      "blocks": [
+        {
+          "id": "grooming",
+          "entries": [
+            { "id": "cut", "amountCents": 2000 },
+            { "id": "beard", "amountCents": 1000 },
+            { "id": "razorBeard", "amountCents": 1500 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "children",
+      "blocks": [
+        {
+          "id": "kids",
+          "entries": [
+            { "id": "boy", "amountCents": 1500 },
+            { "id": "girl", "amountCents": 2000 }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "portrait": { "src": "/images/salon-portrait.jpg", "width": 1600, "height": 2493 },
+  "cut": { "src": "/images/salon-cut.jpg", "width": 1600, "height": 1067 },
+  "colour": { "src": "/images/salon-colour.jpg", "width": 1600, "height": 1067 },
+  "blowDry": { "src": "/images/salon-blow-dry.jpg", "width": 1600, "height": 1068 },
+  "tools": { "src": "/images/salon-detail.jpg", "width": 1600, "height": 1068 }
+}

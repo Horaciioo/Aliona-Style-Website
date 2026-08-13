@@ -1,8 +1,7 @@
 {
   "actions": {
     "contact": "Get in touch",
-    "showcase": "Browse the components",
-    "subscribeNewsletter": "Subscribe",
+    "bookAppointment": "Book an appointment",
     "submit": "Send",
     "cancel": "Cancel",
     "confirm": "Confirm",
@@ -11,51 +10,66 @@
     "open": "Open the menu",
     "next": "Next",
     "previous": "Previous",
-    "search": "Search",
-    "share": "Share",
     "scrollToTop": "Back to top",
-    "getDirections": "Get directions",
+    "getDirections": "Show me the way",
     "accept": "Accept",
     "decline": "Decline",
-    "manageCookies": "Cookie preferences"
+    "manageCookies": "Cookie settings"
   },
   "routes": {
     "home": {
       "label": "Home",
-      "metaTitle": "Home",
-      "metaDescription": "A ready to use website base, built to be reused from one project to the next."
+      "metaTitle": "Hairdressing and colour in Hoenheim",
+      "metaDescription": "Hair salon in Hoenheim: cut, blow-dry, colour, Air Touch and bridal updos. A diagnosis before every colour, prices on display."
     },
-    "showcase": {
-      "label": "Components",
-      "metaTitle": "Components",
-      "metaDescription": "The visual atlas of the design system: colours, type scale, icons and components."
+    "services": {
+      "label": "Services",
+      "metaTitle": "Services and prices",
+      "metaDescription": "Cuts, blow-dries, colour, Air Touch and updos: every service offered at the salon with its price, length by length."
+    },
+    "about": {
+      "label": "The salon",
+      "metaTitle": "The salon and my background",
+      "metaDescription": "Diplomas, training and the way I work: what to know before stepping into the salon."
+    },
+    "works": {
+      "label": "Our work",
+      "metaTitle": "Our work and reviews",
+      "metaDescription": "Reviews left on Google and the transformations done at the salon, before and after, cut by cut."
+    },
+    "appointment": {
+      "label": "Appointment",
+      "metaTitle": "Book an appointment",
+      "metaDescription": "Pick your day and your time. The calendar only shows the slots still free at the salon."
     },
     "contact": {
       "label": "Contact",
       "metaTitle": "Contact",
-      "metaDescription": "Write to us, we answer within one working day."
+      "metaDescription": "Address, phone number and opening hours of Aliona.Style, 56 rue de la République in Hoenheim."
     },
     "thankYou": {
-      "label": "Thank you",
-      "metaTitle": "Thank you",
-      "metaDescription": "Your message is on its way to us, we will come back to you shortly."
+      "label": "Message received",
+      "metaTitle": "Message received",
+      "metaDescription": "Your message reached the salon. I will get back to you by phone or by email, whichever you left."
     },
     "legalNotice": {
       "label": "Legal notice",
       "metaTitle": "Legal notice",
-      "metaDescription": "Publisher, host and terms of use of the website."
+      "metaDescription": "Publisher, host and terms of use of the Aliona.Style website."
     },
     "privacyPolicy": {
       "label": "Privacy",
       "metaTitle": "Privacy policy",
-      "metaDescription": "Collected data, purposes, retention periods and visitor rights."
+      "metaDescription": "Data collected through the form and the booking calendar, retention periods and visitor rights."
     }
   },
   "navigation": {
     "primary": "Main navigation",
     "language": "Change language",
     "breadcrumb": "Breadcrumb",
-    "tagline": "A generic website base, ready to become your next project.",
+    "craft": "Hair salon based in Hoenheim",
+    "motto": "Your hair at its best, our whole craft",
+    "tagline": "Cutting, colour and styling in Hoenheim, by appointment.",
     "copyright": "© {years} {name}. All rights reserved.",
     "theme": {
       "light": "Light theme",
@@ -63,175 +77,278 @@
       "system": "System theme"
     },
     "footer": {
-      "site": "The site",
+      "site": "The salon",
       "legal": "Legal information",
-      "contact": "Contact"
+      "contact": "Reach me"
     }
   },
   "sections": {
     "hero": {
-      "overline": "Project base",
-      "title": "The generic foundation of your next websites",
-      "description": "Components, services, theming and translations are already wired. All that is left is the content.",
-      "imageAlt": "Preview of the design system"
-    },
-    "features": {
-      "overline": "Already in place",
-      "title": "Systems, never copies",
-      "description": "Every brick is declared once and then reused across the whole project.",
-      "items": {
-        "quality": {
-          "title": "Unified design system",
-          "description": "Colours, shadows and radii come from a single theme file that Tailwind reads."
+      "overline": "Hair & colour · Hoenheim",
+      "title": "Colour that holds, a cut that suits you",
+      "secondary": "See the prices",
+      "imageAlt": "Long hair in motion, photographed in black and white",
+      "facts": {
+        "address": {
+          "label": "Address"
         },
-        "speed": {
-          "title": "Immediate start",
-          "description": "Routes, metadata, sitemap and robots are generated from the route registry."
+        "hours": {
+          "label": "Opening hours",
+          "value": "{from} – {to} · {opensAt} – {closesAt}"
         },
-        "support": {
-          "title": "Multilingual by default",
-          "description": "Two languages shipped, and not a single sentence written inside a component."
-        },
-        "security": {
-          "title": "Shared validation",
-          "description": "The same rules validate the form on the visitor side and on the server."
-        },
-        "flexibility": {
-          "title": "Reusable sections",
-          "description": "Nine generic sections compose freely into a full page."
-        },
-        "transparency": {
-          "title": "Written conventions",
-          "description": "Naming, structure and registries are documented in the structure folder."
+        "phone": {
+          "label": "Phone"
         }
       }
     },
-    "stats": {
-      "title": "The base in numbers",
-      "description": "The values below only demonstrate the formatting layer.",
+    "features": {
+      "overline": "The craft",
+      "title": "What I do every day",
+      "description": "Six things that come up almost daily. For anything else, we talk it through before starting.",
+      "imageAlt": "Shampoo at the basin, before the cut",
       "items": {
-        "clients": { "label": "Components shipped" },
-        "projects": { "label": "Declaration files" },
-        "satisfaction": { "label": "Text coverage" },
-        "experience": { "label": "Core services" }
-      }
-    },
-    "gallery": {
-      "overline": "Gallery",
-      "title": "A consistent media rendering",
-      "items": {
-        "item1": "Demonstration visual number one",
-        "item2": "Demonstration visual number two",
-        "item3": "Demonstration visual number three",
-        "item4": "Demonstration visual number four",
-        "item5": "Demonstration visual number five",
-        "item6": "Demonstration visual number six"
+        "colorimetry": {
+          "title": "Colour theory",
+          "description": "I read the underlying pigment before applying anything. That is what keeps out the orange tones nobody wants."
+        },
+        "airTouch": {
+          "title": "Air Touch",
+          "description": "Strands are sorted with a hairdryer before being lightened. Regrowth spreads out gently, without leaving a hard line."
+        },
+        "cut": {
+          "title": "Cut and blow-dry",
+          "description": "A cut that follows your hairline and the density of your hair, so it falls back into place on its own the next day."
+        },
+        "bridal": {
+          "title": "Bridal updo",
+          "description": "A trial before the day itself, the hold checked with the veil, and photos so the same style can be rebuilt on the morning."
+        },
+        "care": {
+          "title": "Care and bio-aesthetics",
+          "description": "The treatment depends on the real state of your lengths, not on whatever is on offer this month."
+        },
+        "diagnosis": {
+          "title": "Diagnosis",
+          "description": "Ten minutes before starting: what you have already had done, the state of the hair, and what will need a second session."
+        }
       }
     },
     "pricing": {
-      "overline": "Offers",
-      "title": "Three sample plans",
-      "description": "Amounts are stored in cents and rendered by the formatting service.",
-      "featured": "Recommended",
-      "periods": {
-        "once": "one time",
-        "month": "per month",
-        "year": "per year"
+      "overline": "Prices",
+      "title": "The prices",
+      "description": "Shampoo included. If your hair is very long or very dense it sometimes takes an extra dose of product, and I tell you before we start.",
+      "imageAlt": "A sharp red bob against a black background",
+      "from": "from {amount}",
+      "range": "{from} – {to}",
+      "groups": {
+        "women": "Women",
+        "men": "Men",
+        "children": "Children"
       },
-      "included": {
-        "scope": "Scoping and sitemap",
-        "revisions": "Two rounds of feedback",
-        "delivery": "Assisted go live",
-        "support": "Three months of follow up",
-        "training": "Hands on training"
+      "lengths": {
+        "short": "Short",
+        "medium": "Medium",
+        "long": "Long"
       },
+      "blocks": {
+        "coloration": {
+          "title": "Colour"
+        },
+        "colorPackage": {
+          "title": "Colour packages"
+        },
+        "airTouch": {
+          "title": "Air Touch",
+          "note": "depending on the starting base"
+        },
+        "weddingUpdo": {
+          "title": "Bridal updo"
+        },
+        "grooming": {
+          "title": "Cut and beard"
+        },
+        "kids": {
+          "title": "Up to 12 years old"
+        }
+      },
+      "entries": {
+        "cutBlowDry": "Cut + blow-dry",
+        "blowDry": "Blow-dry",
+        "highlightsPackage": "Highlights + cut + toner + blow-dry",
+        "perm": "Perm",
+        "airTouch": "Air Touch",
+        "color": "Colour",
+        "toner": "Toner",
+        "extraDose": "Extra dose",
+        "colorCutBlowDry": "Colour + cut + blow-dry",
+        "colorCutTonerBlowDry": "Colour + cut + toner + blow-dry",
+        "fullBleach": "Full bleach",
+        "simple": "Simple updo",
+        "crafted": "Detailed updo",
+        "prestige": "Prestige updo",
+        "cut": "Cut",
+        "beard": "Beard",
+        "razorBeard": "Razor beard",
+        "boy": "Boy",
+        "girl": "Girl"
+      }
+    },
+    "credentials": {
+      "overline": "Background",
+      "title": "Where I trained",
+      "description": "Three qualifications, one of them earned in Moscow. That is what lets me tell you whether a colour will hold, or not.",
+      "imageAlt": "Blow-dry at the end of an appointment",
       "items": {
-        "starter": {
-          "name": "Essential",
-          "description": "One page, the main sections and the go live."
+        "cap": {
+          "label": "Vocational diploma",
+          "title": "Hairdressing",
+          "description": "The basis of the trade: cutting, setting and blow-drying, repeated until the hand is sure of itself."
         },
-        "standard": {
-          "name": "Complete",
-          "description": "Several pages, a contact form and post delivery follow up."
+        "professionalCertificate": {
+          "label": "Professional certificate",
+          "title": "Colour theory",
+          "description": "Colour approached as arithmetic: underlying pigment, neutralisation, how well it holds over time."
         },
-        "premium": {
-          "name": "Tailored",
-          "description": "Dedicated design, written content and team training."
+        "bioAesthetics": {
+          "label": "Certificate, Moscow",
+          "title": "Bio-aesthetics",
+          "description": "A way of approaching hair through the scalp and the fibre, learned during training in Russia."
         }
       }
     },
     "testimonials": {
-      "overline": "Feedback",
-      "title": "What the teams say",
+      "overline": "Google reviews",
+      "title": "What they say about it",
+      "description": "The reviews published on the salon's Google listing, quoted as they are. Hover over the band to stop it scrolling.",
+      "source": "Google review",
+      "rating": "{rating} stars out of 5",
+      "summary": "across {count} published reviews",
       "items": {
-        "first": {
-          "quote": "A project starts already structured, we write content instead of rewiring a base.",
-          "author": "Camille Rivière",
-          "role": "Art direction"
+        "colourHold": {
+          "author": "Marine L.",
+          "quote": "My colour has held for two months without turning. It is the first time somebody explained why before starting, rather than just what it would cost."
         },
-        "second": {
-          "quote": "Changing the theme means editing one file, and the whole site follows without exception.",
-          "author": "Noah Berthier",
-          "role": "Front-end development"
+        "airTouch": {
+          "author": "Sophie B.",
+          "quote": "Air Touch on already bleached lengths: three hours, but the regrowth still does not show. She warned me it might take two sessions, and in the end one was enough."
         },
-        "third": {
-          "quote": "The written conventions end the naming debates at the start of every project.",
-          "author": "Inès Fontaine",
-          "role": "Project management"
+        "bridal": {
+          "author": "Camille D.",
+          "quote": "A trial a month before, photos to go with it, and the updo held from the morning right through the evening. Nothing needed fixing all day."
+        },
+        "listening": {
+          "author": "Nadia K.",
+          "quote": "I turned up with a Pinterest photo and she told me straight what was doable on my hair. We adapted it, and I like the result far better than the photo."
+        },
+        "firstVisit": {
+          "author": "Élodie M.",
+          "quote": "A proper diagnosis before touching anything. A change from salons where you are sat down and cut without a single question."
+        },
+        "kids": {
+          "author": "Julien P.",
+          "quote": "I have been taking my daughter there for a year, and she used to refuse to go to the hairdresser at all. Patience and good humour are enough to win her over."
+        }
+      }
+    },
+    "transformations": {
+      "overline": "Before / after",
+      "title": "Transformations, not touch-ups",
+      "description": "Every appointment starts from the real state of the hair and moves towards a result that lasts. The salon photographs are on their way, the drawings below stand in until then.",
+      "before": "Before",
+      "after": "After",
+      "position": "{position} of {total}",
+      "items": {
+        "brownToBlonde": {
+          "title": "From brown to ash blonde",
+          "description": "Two sessions three weeks apart, a gradual lightening and a cool toner to neutralise the warm tones. The lengths stayed healthy.",
+          "beforeAlt": "Brown hair before lightening",
+          "afterAlt": "Ash blonde reached after two sessions"
+        },
+        "regrowth": {
+          "title": "Regrowth that no longer shows",
+          "description": "Air Touch on a dark base: strands are sorted with a hairdryer before being lightened, so the line spreads out instead of marking.",
+          "beforeAlt": "Marked roots before the retouch",
+          "afterAlt": "Blended regrowth after the Air Touch"
+        },
+        "bobCut": {
+          "title": "The bob that falls back on its own",
+          "description": "A cut drawn on the real hairline and density, not on a template. The next day, one pass of the brush is enough.",
+          "beforeAlt": "Shapeless lengths before the cut",
+          "afterAlt": "Structured bob after the cut"
+        },
+        "bridalUpdo": {
+          "title": "Bridal updo, trial included",
+          "description": "A trial before the day itself, the hold checked with the veil, and photos so the same style can be rebuilt on the morning.",
+          "beforeAlt": "Hair down before styling",
+          "afterAlt": "Finished bridal updo"
         }
       }
     },
     "faq": {
       "overline": "Questions",
-      "title": "The usual questions",
+      "title": "What people ask me most",
       "items": {
-        "delay": {
-          "question": "What has to be changed to start a project?",
-          "answer": "The files of the configurations folder, the translations and the pictures of the public folder. The rest of the code is meant to stay as it is."
+        "duration": {
+          "question": "How much time should I set aside?",
+          "answer": "An hour and a half for a simple colour on medium-length hair, up to three hours for an Air Touch on long hair. I block the slot accordingly: there are never two appointments at the same time."
         },
-        "price": {
-          "question": "How do I add a page?",
-          "answer": "One entry in the route registry, a matching folder under app and a block of translations. Navigation, sitemap and metadata follow on their own."
+        "colorChange": {
+          "question": "Can I go from brown to blonde in one sitting?",
+          "answer": "Rarely. It all depends on what your hair has already been through. Most of the time it takes two or three spaced-out sessions to get there without breaking the lengths, and I tell you at the diagnosis."
         },
-        "process": {
-          "question": "How do I add a form?",
-          "answer": "One declaration in the form registry and a block of translations. Rendering, validation and submission go through the existing bricks."
-        },
-        "support": {
-          "question": "How do I change the visual identity?",
-          "answer": "The palette, radii and shadows live in the theme file. Tailwind reads that same file, so no colour is ever written inside a component."
+        "payment": {
+          "question": "How can I pay?",
+          "answer": "Cash or card, at the salon. There is no deposit to pay when you book."
         },
         "cancel": {
-          "question": "How do I add a language?",
-          "answer": "Add the language code to the localisation file and create the matching message file. Routing and the switcher adapt automatically."
+          "question": "What if I have to cancel?",
+          "answer": "A call or a message, that is all. Letting me know the day before means I can offer the slot to somebody else."
+        },
+        "access": {
+          "question": "Where is the salon?",
+          "answer": "In Hoenheim, just north of Strasbourg. The exact address and the map are at the bottom of this page."
         }
       }
     },
     "callToAction": {
-      "title": "Ready to start a new project?",
-      "description": "Clone the repository, edit the configurations and write your content."
+      "title": "See you soon?",
+      "description": "Pick the slot that suits you, we will sort out the rest here."
     },
     "contact": {
-      "overline": "Write to us",
-      "title": "Let us talk about your project",
-      "description": "Describe your need in a few lines and we will come back to you quickly.",
+      "title": "Reach me",
+      "description": "For a question about colour, a wedding quote, or simply to know whether it can be done: write to me and I answer as soon as the chair is free.",
       "channels": {
-        "email": "Email address",
         "phone": "Phone",
+        "email": "Email",
         "address": "Address"
       },
-      "promises": {
-        "response": { "label": "We reply within 1 business day" },
-        "delivery": { "label": "Delivery within 5 days" }
+      "hours": {
+        "title": "Opening hours",
+        "days": "{from} – {to}",
+        "range": "{opensAt} – {closesAt}",
+        "closed": "Closed"
       },
       "map": {
-        "title": "Location map"
+        "title": "Map to the salon"
       }
+    },
+    "booking": {
+      "overline": "Appointment",
+      "title": "Pick your slot",
+      "description": "The calendar only shows the hours still free. Once confirmed, the appointment goes straight into my diary.",
+      "pickDate": "Start by choosing a date in the calendar.",
+      "noSlot": "Nothing left that day. Try another one, or give me a call.",
+      "success": {
+        "title": "You are booked in",
+        "description": "See you on {date} at {slot}. If something comes up, a call is enough."
+      },
+      "failure": "That did not go through. The slot may have just been taken: try again, or give me a call.",
+      "disabled": "Online booking is closed for the moment. Give me a call, it is simpler."
     }
   },
   "forms": {
     "contact": {
-      "success": "Message sent, we will come back to you shortly.",
+      "success": "Message sent. I will get back to you as soon as I can.",
       "fields": {
         "fullName": {
           "label": "Full name",
@@ -243,36 +360,63 @@
         },
         "phone": {
           "label": "Phone",
-          "placeholder": "+33 6 00 00 00 00",
-          "hint": "Optional, only if you would rather be called."
+          "placeholder": "06 00 00 00 00",
+          "hint": "Optional, if you would rather I called you back."
         },
         "subject": {
           "label": "Subject",
-          "placeholder": "Pick a subject",
+          "placeholder": "Choose a subject",
           "options": {
-            "information": "Information request",
-            "quote": "Quote request",
-            "partnership": "Partnership",
+            "colorAdvice": "Colour advice",
+            "bridal": "Wedding",
+            "information": "General question",
             "other": "Something else"
           }
         },
         "message": {
           "label": "Message",
-          "placeholder": "Describe your project in a few lines.",
+          "placeholder": "Your current length, your last colour, what you have in mind.",
           "hint": "Twenty characters minimum."
         },
         "consent": {
           "label": "Consent",
-          "choice": "I agree that my details may be used to contact me back."
+          "choice": "I agree that this information may be used to get back to me."
         }
       }
     },
-    "newsletter": {
-      "success": "Subscription saved, thank you.",
+    "bookAppointment": {
       "fields": {
+        "fullName": {
+          "label": "Full name",
+          "placeholder": "Camille Rivière"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "06 00 00 00 00"
+        },
         "email": {
           "label": "Email address",
           "placeholder": "camille@example.com"
+        },
+        "service": {
+          "label": "Service wanted",
+          "placeholder": "Choose a service",
+          "options": {
+            "cutBlowDry": "Cut + blow-dry",
+            "blowDry": "Blow-dry",
+            "coloration": "Colour",
+            "airTouch": "Air Touch",
+            "highlights": "Highlights",
+            "perm": "Perm",
+            "weddingUpdo": "Bridal updo",
+            "men": "Men's cut",
+            "children": "Children"
+          }
+        },
+        "note": {
+          "label": "Anything to add",
+          "placeholder": "Your last colour, your length, a timing constraint.",
+          "hint": "Optional, but it saves time on the day."
         }
       }
     }
@@ -283,7 +427,7 @@
     "maxLength": "This field cannot exceed {count} characters.",
     "min": "The minimum value is {count}.",
     "max": "The maximum value is {count}.",
-    "pattern": "The format entered is not valid.",
+    "pattern": "This format is not valid.",
     "mismatch": "The two values do not match."
   },
   "errors": {
@@ -291,107 +435,75 @@
     "unauthorized": "Authentication is required.",
     "forbidden": "This access is not allowed.",
     "notFound": "This page does not exist.",
-    "notFoundHint": "The link may be outdated or mistyped.",
-    "conflict": "This action conflicts with an existing state.",
+    "notFoundHint": "The link may be outdated, or mistyped.",
+    "conflict": "That slot has just been booked.",
     "unprocessable": "Some information is incomplete.",
     "tooManyRequests": "Too many requests sent, try again in a moment.",
     "serverError": "The server ran into a problem.",
     "network": "The connection to the server failed.",
     "timeout": "The server took too long to answer.",
     "unknown": "An unexpected error occurred.",
-    "retryHint": "Render the page again, the incident may be temporary."
+    "retryHint": "Reload the view, the incident may be temporary."
   },
   "feedback": {
     "loading": "Loading",
     "saved": "Change saved.",
-    "pagination": "Page {page} of {totalPages}, {total} results",
     "empty": {
-      "title": "No result",
-      "description": "Widen the search or remove a filter to see more items."
+      "title": "No results",
+      "description": "Widen the search to see more items."
     }
   },
   "consent": {
     "title": "We respect your privacy",
-    "description": "This website uses audience-measurement cookies to understand how it is used. You can accept or decline them, and change your mind at any time.",
+    "description": "This site uses audience measurement cookies to understand its traffic. You can accept or decline them, and change your mind at any time.",
     "privacyLink": "Read the privacy policy"
-  },
-  "showcase": {
-    "title": "Design system atlas",
-    "description": "Every block reads the registries of the project directly, so what is shown here is exactly what exists in the code.",
-    "sample": "The quick brown fox jumps over the lazy dog.",
-    "columns": {
-      "label": "Label",
-      "value": "Value"
-    },
-    "descriptions": {
-      "buttons": "Variants come from the registry, adding one makes it appear here without editing this page.",
-      "forms": "This form is rendered from its declaration alone, no field is written in markup."
-    },
-    "blocks": {
-      "palette": "Palette and tokens",
-      "typography": "Type scale",
-      "icons": "Icon registry",
-      "buttons": "Actions",
-      "badges": "Badges",
-      "alerts": "Messages",
-      "data": "Data",
-      "overlays": "Floating layers",
-      "modal": "Modal dialog",
-      "drawer": "Side panel",
-      "tooltip": "Tooltip",
-      "notification": "Notification",
-      "navigation": "Navigation",
-      "collections": "Collections",
-      "placeholders": "Waiting states",
-      "forms": "Forms"
-    }
   },
   "legal": {
     "legalNotice": {
       "sections": {
         "publisher": {
-          "title": "Publisher",
-          "body": "This website is published by {legalName}, registered under number {registration}, whose office is located at {address}. The publication director is {publisherName}, reachable at {publisherEmail}."
+          "title": "Site publisher",
+          "body": "This site is published by {legalName}, registered under number {registration}, whose premises are at {address}. The publication director is {publisherName}, reachable at {publisherEmail}."
         },
         "hosting": {
           "title": "Hosting",
-          "body": "This website is hosted by {hostingName}, {hostingAddress}."
+          "body": "The site is hosted by {hostingName}, {hostingAddress}."
         },
         "property": {
           "title": "Intellectual property",
-          "body": "All content published on this website, texts, pictures and code, remains the property of {legalName} unless stated otherwise. Any reproduction without written consent is forbidden."
+          "body": "The contents of this site, text, images and code, remain the property of {legalName} unless stated otherwise. Any reproduction without written permission is prohibited."
         },
         "liability": {
           "title": "Liability",
-          "body": "The published information is given for guidance and may change. For any question, write to {email}."
+          "body": "Published prices and opening hours are indicative and may change. For any question, write to {email}."
         }
       }
     },
     "privacyPolicy": {
       "sections": {
         "collection": {
-          "title": "Collected data",
-          "body": "Only the information voluntarily sent through the contact form is collected: name, email address, optional phone number and message."
+          "title": "Data collected",
+          "body": "Only information you send voluntarily is collected: name, phone number, email address, requested service and any written details given when booking or sending a message."
         },
         "purpose": {
-          "title": "Purpose",
-          "body": "This information is only used to answer the request sent to {legalName}. It is never sold nor passed to third parties for commercial purposes."
+          "title": "Purpose of processing",
+          "body": "This information is used solely to honour the appointment or to answer the request sent to {legalName}. The booked slot is written into the salon's professional diary. Nothing is sold or passed on to third parties for commercial purposes."
         },
         "retention": {
           "title": "Retention period",
-          "body": "Messages are kept for as long as the request needs, then deleted after thirty-six months at the latest."
+          "body": "Messages and appointments are kept for as long as the client relationship requires, then deleted after thirty-six months at the latest."
         },
         "rights": {
           "title": "Your rights",
-          "body": "You may access, correct and delete your data. To do so, write to {email}."
+          "body": "You have the right to access, correct and delete your data. To exercise it, write to {email} or call {phone}."
         },
         "cookies": {
           "title": "Cookies",
-          "body": "The website keeps the theme preference in the local storage of the browser. When audience measurement is enabled, analytics cookies are only set after you give consent through the banner shown at the bottom of the page. You can change your mind at any time from the \"Cookie preferences\" link in the footer."
+          "body": "The site keeps your theme preference in the browser's local storage. If audience measurement is enabled, no measurement cookie is set before your consent, given through the banner at the bottom of the page. You can change your mind at any time from the “Cookie settings” link in the footer."
         },
         "contact": {
           "title": "Contact",
-          "body": "For any question about this data, contact {legalName} at {email} or by phone at {phone}."
+          "body": "For any question about this data, contact {legalName} at {email} or by phone on {phone}."
         }
       }
     }

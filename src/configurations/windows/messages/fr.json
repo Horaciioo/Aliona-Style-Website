@@ -1,8 +1,7 @@
 {
   "actions": {
-    "contact": "Nous contacter",
-    "showcase": "Voir les composants",
-    "subscribeNewsletter": "S'inscrire",
+    "contact": "Me contacter",
+    "bookAppointment": "Prendre rendez-vous",
     "submit": "Envoyer",
     "cancel": "Annuler",
     "confirm": "Confirmer",
@@ -11,10 +10,8 @@
     "open": "Ouvrir le menu",
     "next": "Suivant",
     "previous": "Précédent",
-    "search": "Rechercher",
-    "share": "Partager",
     "scrollToTop": "Revenir en haut",
-    "getDirections": "Itinéraire",
+    "getDirections": "M'afficher l'itinéraire",
     "accept": "Accepter",
     "decline": "Refuser",
     "manageCookies": "Préférences cookies"
@@ -22,40 +19,57 @@
   "routes": {
     "home": {
       "label": "Accueil",
-      "metaTitle": "Accueil",
-      "metaDescription": "Une base de site prête à l'emploi, pensée pour être reprise projet après projet."
+      "metaTitle": "Coiffure et couleur à Hoenheim",
+      "metaDescription": "Salon de coiffure à Hoenheim : coupe, brushing, coloration, Air Touch et chignon de mariée. Diagnostic avant chaque couleur, tarifs affichés."
     },
-    "showcase": {
-      "label": "Composants",
-      "metaTitle": "Composants",
-      "metaDescription": "L'atlas visuel du design system : couleurs, typographies, icônes et composants."
+    "services": {
+      "label": "Prestations",
+      "metaTitle": "Prestations et tarifs",
+      "metaDescription": "Coupe, brushing, coloration, Air Touch et chignon : le détail des prestations du salon et leurs tarifs, longueur par longueur."
+    },
+    "about": {
+      "label": "Le salon",
+      "metaTitle": "Le salon et mon parcours",
+      "metaDescription": "Diplômes, formations et façon de travailler : ce qu'il faut savoir avant de pousser la porte du salon."
+    },
+    "works": {
+      "label": "Réalisations",
+      "metaTitle": "Réalisations et avis",
+      "metaDescription": "Les avis laissés sur Google et les transformations réalisées au salon, avant et après, coupe par coupe."
+    },
+    "appointment": {
+      "label": "Rendez-vous",
+      "metaTitle": "Prendre rendez-vous",
+      "metaDescription": "Choisissez votre jour et votre heure. Le calendrier n'affiche que les créneaux encore libres au salon."
     },
     "contact": {
       "label": "Contact",
       "metaTitle": "Contact",
-      "metaDescription": "Écrivez-nous, nous répondons sous vingt-quatre heures ouvrées."
+      "metaDescription": "Adresse, téléphone et horaires du salon Aliona.Style, 56 rue de la République à Hoenheim."
     },
     "thankYou": {
-      "label": "Merci",
-      "metaTitle": "Merci",
-      "metaDescription": "Votre message est bien arrivé, nous revenons vers vous très vite."
+      "label": "Message bien reçu",
+      "metaTitle": "Message bien reçu",
+      "metaDescription": "Votre message est arrivé au salon. Je vous réponds par téléphone ou par e-mail, selon ce que vous avez laissé."
     },
     "legalNotice": {
       "label": "Mentions légales",
       "metaTitle": "Mentions légales",
-      "metaDescription": "Éditeur, hébergeur et conditions d'utilisation du site."
+      "metaDescription": "Éditeur, hébergeur et conditions d'utilisation du site Aliona.Style."
     },
     "privacyPolicy": {
       "label": "Confidentialité",
       "metaTitle": "Politique de confidentialité",
-      "metaDescription": "Données collectées, finalités, durées de conservation et droits des visiteurs."
+      "metaDescription": "Données collectées par le formulaire et la prise de rendez-vous, durées de conservation et droits des visiteurs."
     }
   },
   "navigation": {
     "primary": "Navigation principale",
     "language": "Changer de langue",
     "breadcrumb": "Fil d'Ariane",
-    "tagline": "Une base de site générique, prête à devenir votre prochain projet.",
+    "craft": "Salon de coiffure basé à Hoenheim",
+    "motto": "La beauté de vos cheveux, notre passion",
+    "tagline": "Coupe, couleur et coiffage à Hoenheim, sur rendez-vous.",
     "copyright": "© {years} {name}. Tous droits réservés.",
     "theme": {
       "light": "Thème clair",
@@ -63,175 +77,278 @@
       "system": "Thème du système"
     },
     "footer": {
-      "site": "Le site",
+      "site": "Le salon",
       "legal": "Informations légales",
-      "contact": "Contact"
+      "contact": "Me joindre"
     }
   },
   "sections": {
     "hero": {
-      "overline": "Base de projet",
-      "title": "Le socle générique de vos prochains sites",
-      "description": "Composants, services, thème et internationalisation sont déjà en place. Il ne reste qu'à écrire le contenu.",
-      "imageAlt": "Aperçu du design system"
-    },
-    "features": {
-      "overline": "Ce qui est déjà là",
-      "title": "Des systèmes, pas des copies",
-      "description": "Chaque brique est déclarée une seule fois puis réutilisée partout dans le projet.",
-      "items": {
-        "quality": {
-          "title": "Design system unifié",
-          "description": "Couleurs, ombres et rayons viennent d'un seul fichier de thème lu par Tailwind."
+      "overline": "Coiffure & couleur · Hoenheim",
+      "title": "Une couleur qui tient, une coupe qui vous va",
+      "secondary": "Voir les tarifs",
+      "imageAlt": "Cheveux longs en mouvement, photographiés en noir et blanc",
+      "facts": {
+        "address": {
+          "label": "Adresse"
         },
-        "speed": {
-          "title": "Mise en route immédiate",
-          "description": "Routes, métadonnées, sitemap et robots se génèrent depuis le registre de routes."
+        "hours": {
+          "label": "Horaires",
+          "value": "{from} – {to} · {opensAt} – {closesAt}"
         },
-        "support": {
-          "title": "Multilingue natif",
-          "description": "Deux langues livrées, aucune phrase écrite en dur dans un composant."
-        },
-        "security": {
-          "title": "Validation partagée",
-          "description": "Les mêmes règles valident le formulaire côté visiteur et côté serveur."
-        },
-        "flexibility": {
-          "title": "Sections réutilisables",
-          "description": "Neuf sections génériques se composent librement pour former une page."
-        },
-        "transparency": {
-          "title": "Conventions écrites",
-          "description": "Nommage, structure et registres sont documentés dans le dossier structure."
+        "phone": {
+          "label": "Téléphone"
         }
       }
     },
-    "stats": {
-      "title": "Le socle en chiffres",
-      "description": "Les valeurs ci-dessous ne sont que des exemples de formatage.",
+    "features": {
+      "overline": "Le métier",
+      "title": "Ce que je fais au quotidien",
+      "description": "Six gestes qui reviennent presque tous les jours. Pour tout le reste, on en parle avant de commencer.",
+      "imageAlt": "Shampooing au bac, avant la coupe",
       "items": {
-        "clients": { "label": "Composants livrés" },
-        "projects": { "label": "Fichiers déclaratifs" },
-        "satisfaction": { "label": "Couverture des textes" },
-        "experience": { "label": "Services centraux" }
-      }
-    },
-    "gallery": {
-      "overline": "Galerie",
-      "title": "Un rendu média cohérent",
-      "items": {
-        "item1": "Visuel de démonstration numéro un",
-        "item2": "Visuel de démonstration numéro deux",
-        "item3": "Visuel de démonstration numéro trois",
-        "item4": "Visuel de démonstration numéro quatre",
-        "item5": "Visuel de démonstration numéro cinq",
-        "item6": "Visuel de démonstration numéro six"
+        "colorimetry": {
+          "title": "Colorimétrie",
+          "description": "Je lis le fond d'éclaircissement avant de poser quoi que ce soit. C'est ce qui évite les reflets orangés dont personne ne veut."
+        },
+        "airTouch": {
+          "title": "Air Touch",
+          "description": "Les mèches sont triées au sèche-cheveux avant d'être éclaircies. La repousse s'étale doucement, sans laisser de trait net."
+        },
+        "cut": {
+          "title": "Coupe et brushing",
+          "description": "Une coupe qui suit votre implantation et la densité de vos cheveux, pour qu'elle retombe toute seule le lendemain."
+        },
+        "bridal": {
+          "title": "Chignon de mariée",
+          "description": "Un essai avant le jour J, la tenue vérifiée avec le voile, et des photos pour refaire exactement le même le matin venu."
+        },
+        "care": {
+          "title": "Soin et bio-esthétique",
+          "description": "Le soin dépend de l'état réel de vos longueurs, pas de ce qui est en promotion ce mois-ci."
+        },
+        "diagnosis": {
+          "title": "Diagnostic",
+          "description": "Dix minutes avant de commencer : ce que vous avez déjà fait, l'état de la fibre, et ce qui demandera une deuxième séance."
+        }
       }
     },
     "pricing": {
-      "overline": "Offres",
-      "title": "Trois formules d'exemple",
-      "description": "Les montants sont stockés en centimes et mis en forme par le service de formatage.",
-      "featured": "Recommandé",
-      "periods": {
-        "once": "une fois",
-        "month": "par mois",
-        "year": "par an"
+      "overline": "Tarifs",
+      "title": "Les tarifs",
+      "description": "Shampooing compris. Si vos cheveux sont très longs ou très denses, il faut parfois une dose de produit en plus : je vous le dis avant de commencer.",
+      "imageAlt": "Carré roux travaillé, sur fond noir",
+      "from": "dès {amount}",
+      "range": "{from} – {to}",
+      "groups": {
+        "women": "Femmes",
+        "men": "Hommes",
+        "children": "Enfants"
       },
-      "included": {
-        "scope": "Cadrage et arborescence",
-        "revisions": "Deux séries de retours",
-        "delivery": "Mise en ligne accompagnée",
-        "support": "Trois mois de suivi",
-        "training": "Formation à la prise en main"
+      "lengths": {
+        "short": "Court",
+        "medium": "Mi-long",
+        "long": "Long"
       },
+      "blocks": {
+        "coloration": {
+          "title": "Coloration"
+        },
+        "colorPackage": {
+          "title": "Forfaits couleur"
+        },
+        "airTouch": {
+          "title": "Air Touch",
+          "note": "selon la base de départ"
+        },
+        "weddingUpdo": {
+          "title": "Chignon mariage"
+        },
+        "grooming": {
+          "title": "Coupe et barbe"
+        },
+        "kids": {
+          "title": "Jusqu'à 12 ans"
+        }
+      },
+      "entries": {
+        "cutBlowDry": "Coupe + brushing",
+        "blowDry": "Brushing",
+        "highlightsPackage": "Mèches + coupe + patine + brushing",
+        "perm": "Permanente",
+        "airTouch": "Air Touch",
+        "color": "Couleur",
+        "toner": "Patine",
+        "extraDose": "Dose supplémentaire",
+        "colorCutBlowDry": "Couleur + coupe + brushing",
+        "colorCutTonerBlowDry": "Couleur + coupe + patine + brushing",
+        "fullBleach": "Décoloration totale",
+        "simple": "Chignon simple",
+        "crafted": "Chignon travaillé",
+        "prestige": "Chignon prestige",
+        "cut": "Coupe",
+        "beard": "Barbe",
+        "razorBeard": "Barbe au rasoir",
+        "boy": "Garçon",
+        "girl": "Fille"
+      }
+    },
+    "credentials": {
+      "overline": "Parcours",
+      "title": "Où j'ai appris",
+      "description": "Trois formations, dont une passée à Moscou. C'est ce qui me permet de vous dire si une couleur va tenir, ou pas.",
+      "imageAlt": "Brushing en fin de rendez-vous",
       "items": {
-        "starter": {
-          "name": "Essentiel",
-          "description": "Une page, les sections principales et la mise en ligne."
+        "cap": {
+          "label": "CAP",
+          "title": "Coiffure",
+          "description": "La base du métier : la coupe, la mise en plis, le brushing, répétés jusqu'à ce que la main soit sûre."
         },
-        "standard": {
-          "name": "Complet",
-          "description": "Plusieurs pages, formulaire de contact et suivi après livraison."
+        "professionalCertificate": {
+          "label": "Brevet professionnel",
+          "title": "Colorimétrie",
+          "description": "La couleur abordée comme un calcul : fond d'éclaircissement, neutralisation, tenue dans le temps."
         },
-        "premium": {
-          "name": "Sur mesure",
-          "description": "Design dédié, contenus rédigés et formation de l'équipe."
+        "bioAesthetics": {
+          "label": "Certificat, Moscou",
+          "title": "Bio-esthétique",
+          "description": "Une façon d'aborder le cheveu par le cuir chevelu et la fibre, apprise pendant une formation en Russie."
         }
       }
     },
     "testimonials": {
-      "overline": "Retours",
-      "title": "Ce qu'en disent les équipes",
+      "overline": "Avis Google",
+      "title": "Ce qu'elles en disent",
+      "description": "Les avis publiés sur la fiche Google du salon, repris tels quels. Passez la souris dessus pour arrêter le défilement.",
+      "source": "Avis Google",
+      "rating": "{rating} étoiles sur 5",
+      "summary": "sur {count} avis publiés",
       "items": {
-        "first": {
-          "quote": "Le projet démarre déjà structuré, on écrit du contenu au lieu de recâbler une base.",
-          "author": "Camille Rivière",
-          "role": "Direction artistique"
+        "colourHold": {
+          "author": "Marine L.",
+          "quote": "Ma couleur tient depuis deux mois sans virer. C'est la première fois qu'on m'explique pourquoi avant de commencer, et pas juste ce que ça va coûter."
         },
-        "second": {
-          "quote": "Changer le thème revient à modifier un fichier, tout le site suit sans exception.",
-          "author": "Noah Berthier",
-          "role": "Développement front"
+        "airTouch": {
+          "author": "Sophie B.",
+          "quote": "Air Touch sur des longueurs déjà décolorées : trois heures, mais la repousse ne se voit toujours pas. Elle m'avait prévenue qu'il faudrait deux séances, on en a finalement eu besoin d'une seule."
         },
-        "third": {
-          "quote": "Les conventions écrites évitent les débats de nommage à chaque nouveau projet.",
-          "author": "Inès Fontaine",
-          "role": "Gestion de projet"
+        "bridal": {
+          "author": "Camille D.",
+          "quote": "Essai un mois avant, photos à l'appui, et le chignon a tenu du matin jusqu'à la fin de la soirée. Rien à retoucher de la journée."
+        },
+        "listening": {
+          "author": "Nadia K.",
+          "quote": "J'arrivais avec une photo Pinterest, elle m'a dit franchement ce qui était faisable sur mes cheveux. On a adapté, et j'aime beaucoup mieux le résultat que la photo."
+        },
+        "firstVisit": {
+          "author": "Élodie M.",
+          "quote": "Un vrai diagnostic avant de toucher à quoi que ce soit. Ça change des salons où on vous installe et où on coupe sans rien demander."
+        },
+        "kids": {
+          "author": "Julien P.",
+          "quote": "J'y emmène ma fille depuis un an, elle qui ne voulait plus aller chez le coiffeur. Patience et bonne humeur, ça suffit à la convaincre."
+        }
+      }
+    },
+    "transformations": {
+      "overline": "Avant / après",
+      "title": "Des transformations, pas des retouches",
+      "description": "Chaque rendez-vous part d'un état réel et va vers un résultat tenable. Les photos du salon arrivent bientôt, les silhouettes ci-dessous les remplacent en attendant.",
+      "before": "Avant",
+      "after": "Après",
+      "position": "{position} sur {total}",
+      "items": {
+        "brownToBlonde": {
+          "title": "Du brun au blond cendré",
+          "description": "Deux séances espacées de trois semaines, une décoloration progressive et une patine froide pour neutraliser les reflets chauds. Les longueurs sont restées saines.",
+          "beforeAlt": "Cheveux bruns avant l'éclaircissement",
+          "afterAlt": "Blond cendré obtenu après deux séances"
+        },
+        "regrowth": {
+          "title": "Une repousse qui ne se voit plus",
+          "description": "Air Touch sur base foncée : les mèches sont triées au sèche-cheveux avant d'être éclaircies, la démarcation s'étale au lieu de marquer un trait.",
+          "beforeAlt": "Racines marquées avant la retouche",
+          "afterAlt": "Repousse fondue après l'Air Touch"
+        },
+        "bobCut": {
+          "title": "Le carré qui retombe seul",
+          "description": "Coupe dessinée sur l'implantation et la densité réelles, pas sur un gabarit. Le lendemain, un coup de brosse suffit.",
+          "beforeAlt": "Longueurs sans forme avant la coupe",
+          "afterAlt": "Carré structuré après la coupe"
+        },
+        "bridalUpdo": {
+          "title": "Chignon de mariée, essai compris",
+          "description": "Un essai avant le jour J, la tenue vérifiée avec le voile, et des photos pour refaire exactement le même le matin venu.",
+          "beforeAlt": "Cheveux détachés avant le coiffage",
+          "afterAlt": "Chignon de mariée terminé"
         }
       }
     },
     "faq": {
       "overline": "Questions",
-      "title": "Les points souvent demandés",
+      "title": "Ce qu'on me demande souvent",
       "items": {
-        "delay": {
-          "question": "Que faut-il modifier pour démarrer un projet ?",
-          "answer": "Les fichiers du dossier configurations, les traductions et les visuels du dossier public. Le reste du code est prévu pour rester tel quel."
+        "duration": {
+          "question": "Combien de temps faut-il prévoir ?",
+          "answer": "Une heure et demie pour une couleur simple sur des cheveux mi-longs, jusqu'à trois heures pour un Air Touch sur des longueurs. Je bloque le créneau en conséquence : il n'y a jamais deux rendez-vous en même temps."
         },
-        "price": {
-          "question": "Comment ajouter une page ?",
-          "answer": "Une entrée dans le registre de routes, un dossier correspondant sous app et un bloc de traductions. La navigation, le sitemap et les métadonnées suivent seuls."
+        "colorChange": {
+          "question": "Je veux passer du brun au blond, c'est faisable en une fois ?",
+          "answer": "Rarement. Tout dépend de ce que vos cheveux ont déjà subi. La plupart du temps il faut deux ou trois séances espacées pour y arriver sans casser les longueurs, et je vous le dis dès le diagnostic."
         },
-        "process": {
-          "question": "Comment ajouter un formulaire ?",
-          "answer": "Une déclaration dans le registre de formulaires et un bloc de traductions. Le rendu, la validation et l'envoi passent par les briques existantes."
-        },
-        "support": {
-          "question": "Comment changer la charte graphique ?",
-          "answer": "La palette, les rayons et les ombres vivent dans le fichier de thème. Tailwind lit ce même fichier, aucune couleur n'est écrite dans un composant."
+        "payment": {
+          "question": "Comment est-ce que je peux payer ?",
+          "answer": "En espèces ou en carte, sur place. Il n'y a pas d'acompte à verser au moment de la réservation."
         },
         "cancel": {
-          "question": "Comment ajouter une langue ?",
-          "answer": "Ajouter le code de langue dans la localisation et créer le fichier de messages correspondant. Le routage et le sélecteur s'adaptent automatiquement."
+          "question": "Et si je dois annuler ?",
+          "answer": "Un appel ou un message, c'est tout. Prévenir la veille me permet de proposer le créneau à quelqu'un d'autre."
+        },
+        "access": {
+          "question": "Où se trouve le salon ?",
+          "answer": "À Hoenheim, juste au nord de Strasbourg. L'adresse exacte et le plan sont en bas de cette page."
         }
       }
     },
     "callToAction": {
-      "title": "Prêt à démarrer un nouveau projet ?",
-      "description": "Clonez le dépôt, changez les configurations et écrivez votre contenu."
+      "title": "On se voit bientôt ?",
+      "description": "Choisissez le créneau qui vous arrange, on verra le reste sur place."
     },
     "contact": {
-      "overline": "Écrivez-nous",
-      "title": "Parlons de votre projet",
-      "description": "Décrivez votre besoin en quelques lignes, nous revenons vers vous rapidement.",
+      "title": "Me joindre",
+      "description": "Pour une question sur une couleur, un devis mariage, ou juste savoir si c'est faisable : écrivez-moi, je réponds dès que le fauteuil est libre.",
       "channels": {
-        "email": "Adresse e-mail",
         "phone": "Téléphone",
+        "email": "E-mail",
         "address": "Adresse"
       },
-      "promises": {
-        "response": { "label": "Réponse sous 24h ouvrées" },
-        "delivery": { "label": "Livraison sous 5 jours" }
+      "hours": {
+        "title": "Horaires",
+        "days": "{from} – {to}",
+        "range": "{opensAt} – {closesAt}",
+        "closed": "Fermé"
       },
       "map": {
-        "title": "Carte de localisation"
+        "title": "Plan d'accès au salon"
       }
+    },
+    "booking": {
+      "overline": "Rendez-vous",
+      "title": "Choisissez votre créneau",
+      "description": "Le calendrier n'affiche que les heures encore libres. Une fois validé, le rendez-vous s'inscrit directement dans mon agenda.",
+      "pickDate": "Choisissez d'abord une date dans le calendrier.",
+      "noSlot": "Plus rien de libre ce jour-là. Essayez un autre jour, ou appelez-moi.",
+      "success": {
+        "title": "C'est noté",
+        "description": "On se voit {date} à {slot}. Si vous avez un empêchement, un appel suffit."
+      },
+      "failure": "Ça n'est pas passé. Le créneau vient peut-être d'être pris : réessayez, ou appelez-moi.",
+      "disabled": "La réservation en ligne est fermée pour le moment. Appelez-moi, c'est plus simple."
     }
   },
   "forms": {
     "contact": {
-      "success": "Message envoyé, nous revenons vers vous très vite.",
+      "success": "Message envoyé. Je vous réponds dès que possible.",
       "fields": {
         "fullName": {
           "label": "Nom complet",
@@ -243,36 +360,63 @@
         },
         "phone": {
           "label": "Téléphone",
-          "placeholder": "+33 6 00 00 00 00",
-          "hint": "Facultatif, seulement si vous préférez un appel."
+          "placeholder": "06 00 00 00 00",
+          "hint": "Facultatif, si vous préférez que je vous rappelle."
         },
         "subject": {
           "label": "Sujet",
           "placeholder": "Choisissez un sujet",
           "options": {
-            "information": "Demande d'information",
-            "quote": "Demande de devis",
-            "partnership": "Partenariat",
-            "other": "Autre sujet"
+            "colorAdvice": "Conseil couleur",
+            "bridal": "Mariage",
+            "information": "Renseignement",
+            "other": "Autre demande"
           }
         },
         "message": {
           "label": "Message",
-          "placeholder": "Décrivez votre projet en quelques lignes.",
+          "placeholder": "Votre longueur actuelle, votre dernière couleur, ce que vous avez en tête.",
           "hint": "Vingt caractères minimum."
         },
         "consent": {
           "label": "Consentement",
-          "choice": "J'accepte que mes informations soient utilisées pour me recontacter."
+          "choice": "J'accepte que ces informations servent à me recontacter."
         }
       }
     },
-    "newsletter": {
-      "success": "Inscription enregistrée, merci.",
+    "bookAppointment": {
       "fields": {
+        "fullName": {
+          "label": "Nom complet",
+          "placeholder": "Camille Rivière"
+        },
+        "phone": {
+          "label": "Téléphone",
+          "placeholder": "06 00 00 00 00"
+        },
         "email": {
           "label": "Adresse e-mail",
           "placeholder": "camille@exemple.fr"
+        },
+        "service": {
+          "label": "Prestation souhaitée",
+          "placeholder": "Choisissez une prestation",
+          "options": {
+            "cutBlowDry": "Coupe + brushing",
+            "blowDry": "Brushing",
+            "coloration": "Coloration",
+            "airTouch": "Air Touch",
+            "highlights": "Mèches",
+            "perm": "Permanente",
+            "weddingUpdo": "Chignon mariage",
+            "men": "Coupe homme",
+            "children": "Enfant"
+          }
+        },
+        "note": {
+          "label": "Précisions",
+          "placeholder": "Votre dernière couleur, votre longueur, une contrainte d'horaire.",
+          "hint": "Facultatif, mais ça fait gagner du temps sur place."
         }
       }
     }
@@ -291,8 +435,8 @@
     "unauthorized": "Une authentification est nécessaire.",
     "forbidden": "Cet accès n'est pas autorisé.",
     "notFound": "Cette page n'existe pas.",
-    "notFoundHint": "Le lien est peut-être ancien ou mal recopié.",
-    "conflict": "Cette action entre en conflit avec un état existant.",
+    "notFoundHint": "Le lien est peut-être ancien, ou mal recopié.",
+    "conflict": "Ce créneau vient d'être réservé.",
     "unprocessable": "Certaines informations sont incomplètes.",
     "tooManyRequests": "Trop de demandes envoyées, réessayez dans un instant.",
     "serverError": "Le serveur a rencontré un problème.",
@@ -304,10 +448,9 @@
   "feedback": {
     "loading": "Chargement en cours",
     "saved": "Modification enregistrée.",
-    "pagination": "Page {page} sur {totalPages}, {total} résultats",
     "empty": {
       "title": "Aucun résultat",
-      "description": "Élargissez la recherche ou retirez un filtre pour voir davantage d'éléments."
+      "description": "Élargissez la recherche pour voir davantage d'éléments."
     }
   },
   "consent": {
@@ -315,43 +458,12 @@
     "description": "Ce site utilise des cookies de mesure d'audience pour comprendre sa fréquentation. Vous pouvez les accepter ou les refuser, et changer d'avis à tout moment.",
     "privacyLink": "Lire la politique de confidentialité"
   },
-  "showcase": {
-    "title": "Atlas du design system",
-    "description": "Chaque bloc lit directement les registres du projet, ce qui est affiché ici est donc exactement ce qui existe dans le code.",
-    "sample": "Portez ce vieux whisky au juge blond qui fume.",
-    "columns": {
-      "label": "Libellé",
-      "value": "Valeur"
-    },
-    "descriptions": {
-      "buttons": "Les variantes viennent du registre, en ajouter une la fait apparaître ici sans modifier cette page.",
-      "forms": "Ce formulaire est rendu depuis sa seule déclaration, aucun champ n'est écrit en markup."
-    },
-    "blocks": {
-      "palette": "Palette et tokens",
-      "typography": "Échelle typographique",
-      "icons": "Registre d'icônes",
-      "buttons": "Actions",
-      "badges": "Étiquettes",
-      "alerts": "Messages",
-      "data": "Données",
-      "overlays": "Couches flottantes",
-      "modal": "Fenêtre modale",
-      "drawer": "Panneau latéral",
-      "tooltip": "Infobulle",
-      "notification": "Notification",
-      "navigation": "Navigation",
-      "collections": "Collections",
-      "placeholders": "États d'attente",
-      "forms": "Formulaires"
-    }
-  },
   "legal": {
     "legalNotice": {
       "sections": {
         "publisher": {
           "title": "Éditeur du site",
-          "body": "Le site est édité par {legalName}, immatriculée sous le numéro {registration}, dont le siège est situé {address}. Le directeur de la publication est {publisherName}, joignable à l'adresse {publisherEmail}."
+          "body": "Le site est édité par {legalName}, immatriculée sous le numéro {registration}, dont l'établissement est situé {address}. La directrice de la publication est {publisherName}, joignable à l'adresse {publisherEmail}."
         },
         "hosting": {
           "title": "Hébergement",
@@ -359,11 +471,11 @@
         },
         "property": {
           "title": "Propriété intellectuelle",
-          "body": "L'ensemble des contenus présents sur le site, textes, visuels et code, reste la propriété de {legalName}, sauf mention contraire. Toute reproduction sans autorisation écrite est interdite."
+          "body": "Les contenus du site, textes, visuels et code, restent la propriété de {legalName}, sauf mention contraire. Toute reproduction sans autorisation écrite est interdite."
         },
         "liability": {
           "title": "Responsabilité",
-          "body": "Les informations publiées sont fournies à titre indicatif et peuvent évoluer. Pour toute question, écrivez à {email}."
+          "body": "Les tarifs et les horaires publiés sont donnés à titre indicatif et peuvent évoluer. Pour toute question, écrivez à {email}."
         }
       }
     },
@@ -371,23 +483,23 @@
       "sections": {
         "collection": {
           "title": "Données collectées",
-          "body": "Seules les informations transmises volontairement par le formulaire de contact sont collectées : nom, adresse e-mail, téléphone facultatif et message."
+          "body": "Seules les informations transmises volontairement sont collectées : nom, téléphone, adresse e-mail, prestation souhaitée et précisions écrites lors d'une prise de rendez-vous ou d'un message."
         },
         "purpose": {
           "title": "Finalité du traitement",
-          "body": "Ces informations servent uniquement à répondre à la demande envoyée à {legalName}. Elles ne sont ni revendues ni transmises à des tiers à des fins commerciales."
+          "body": "Ces informations servent uniquement à honorer le rendez-vous ou à répondre à la demande adressée à {legalName}. Le créneau réservé est inscrit dans l'agenda professionnel du salon. Rien n'est revendu ni transmis à des tiers à des fins commerciales."
         },
         "retention": {
           "title": "Durée de conservation",
-          "body": "Les messages sont conservés le temps nécessaire au traitement de la demande, puis supprimés au plus tard au bout de trente-six mois."
+          "body": "Les messages et les rendez-vous sont conservés le temps nécessaire au suivi de la cliente, puis supprimés au plus tard au bout de trente-six mois."
         },
         "rights": {
           "title": "Vos droits",
-          "body": "Vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, écrivez à {email}."
+          "body": "Vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, écrivez à {email} ou appelez le {phone}."
         },
         "cookies": {
           "title": "Cookies",
-          "body": "Le site conserve la préférence de thème dans le stockage local du navigateur. Si la mesure d'audience est activée, des cookies de mesure d'audience ne sont déposés qu'après votre consentement, donné via le bandeau affiché en bas de page. Vous pouvez changer d'avis à tout moment depuis le lien « Préférences cookies » du pied de page."
+          "body": "Le site conserve la préférence de thème dans le stockage local du navigateur. Si la mesure d'audience est activée, aucun cookie de mesure n'est déposé avant votre consentement, donné via le bandeau affiché en bas de page. Vous pouvez changer d'avis à tout moment depuis le lien « Préférences cookies » du pied de page."
         },
         "contact": {
           "title": "Contact",

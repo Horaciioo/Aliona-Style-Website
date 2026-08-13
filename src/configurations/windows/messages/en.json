@@ -456,8 +456,24 @@
   },
   "consent": {
     "title": "We respect your privacy",
-    "description": "This site uses audience measurement cookies to understand its traffic. You can accept or decline them, and change your mind at any time.",
-    "privacyLink": "Read the privacy policy"
+    "description": "This site uses audience measurement cookies to understand its traffic. Choose what you accept, and change your mind at any time.",
+    "privacyLink": "Read the privacy policy",
+    "required": "Always on",
+    "actions": {
+      "declineAll": "Decline all",
+      "saveChoices": "Save my choices",
+      "acceptAll": "Accept all"
+    },
+    "categories": {
+      "necessary": {
+        "label": "Necessary cookies",
+        "description": "Required for the site to work: language, theme and the choice saved here. They cannot be turned off."
+      },
+      "analytics": {
+        "label": "Audience measurement",
+        "description": "Anonymous traffic statistics, to understand which pages are useful. Nothing is stored without your agreement."
+      }
+    }
   },
   "legal": {
     "legalNotice": {
@@ -500,7 +516,7 @@
         },
         "cookies": {
           "title": "Cookies",
-          "body": "The site keeps your theme preference in the browser's local storage. If audience measurement is enabled, no measurement cookie is set before your consent, given through the banner at the bottom of the page. You can change your mind at any time from the “Cookie settings” link in the footer."
+          "body": "The site keeps your theme preference in the browser's local storage. If audience measurement is enabled, no measurement cookie is set before your consent. You can open your preferences and change your mind at any time from the cookie button, at the bottom right of every page."
         },
         "contact": {
           "title": "Contact",

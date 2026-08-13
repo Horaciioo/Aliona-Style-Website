@@ -3,7 +3,7 @@
   "languageSwitcher": true,
   "scrollToTop": true,
   "notifications": true,
-  "analytics": false,
+  "analytics": true,
   "contactForm": true,
   "stickyActionBar": true,
   "locationMap": true,

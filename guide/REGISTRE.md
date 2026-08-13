@@ -659,29 +659,33 @@ manque.
 
 ## 33. Consentement aux cookies
 
-|                  |                                                                                                   |
-| ---------------- | ------------------------------------------------------------------------------------------------- |
-| **Type**         | `src/types/consent.ts` (`ConsentStatus`)                                                          |
-| **Service**      | `src/services/ConsentService.ts`                                                                  |
-| **Composants**   | `src/components/structures/feedback/ConsentBanner.tsx`, `src/components/layout/AnalyticsGate.tsx` |
-| **Consommé par** | `src/app/[locale]/layout.tsx`, `src/components/layout/SiteFooter.tsx`                             |
-| **Drapeau**      | `features.json → analytics` (aucun drapeau dédié, voir plus bas)                                  |
+|                  |                                                                                                    |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
+| **Déclaration**  | `src/declarations/analytics.ts` (`CONSENT_CATEGORIES`)                                             |
+| **Types**        | `src/types/consent.ts` (`ConsentStatus`, `ConsentCategoryDeclaration`, `ConsentPreferences`, `ConsentState`) |
+| **Service**      | `src/services/ConsentService.ts`                                                                   |
+| **Composants**   | `src/components/structures/feedback/ConsentManager.tsx`, `src/components/layout/AnalyticsGate.tsx` |
+| **Consommé par** | `src/app/[locale]/layout.tsx`                                                                      |
+| **Drapeau**      | `features.json → analytics` (catégorie `analytics` seulement, voir plus bas)                       |
 
-**Variables** — `ConsentService.use()` (statut réactif), `grant()`, `deny()`, `reset()`. Statut
-persisté via `StorageService` sous `STORAGE_KEYS.consent`, trois valeurs : `pending`, `granted`,
-`denied`.
-**Règle** — pas de drapeau séparé : le bandeau et le blocage n'existent que si `features.json →
-analytics` est actif **et** `ConfigurationService.environment.analytics.enabled` l'est aussi. Rien à
-consentir si l'analytique est coupée pour ce projet. Un clone frais du template (`analytics: false`)
-n'affiche donc aucun bandeau.
-**Câblage** — `AnalyticsGate` (client) ne monte `<Analytics />` (Vercel) et `<GoogleAnalytics>` (GA4)
-que lorsque `ConsentService.use()` rend `'granted'` ; il remplace le montage inconditionnel qui
-existait avant dans `[locale]/layout.tsx`. `ConsentBanner` s'affiche tant que le statut reste
-`pending`, propose `actions.accept`/`actions.decline`, et pointe vers `routes.privacyPolicy` via
-`NavigationService.pathOf`.
-**Revenir sur son choix** — un bouton dans `SiteFooter` (libellé `actions.manageCookies`) appelle
-`ConsentService.reset()`, ce qui réaffiche le bandeau à l'écran suivant.
-**Clés i18n** — `consent.title|description|privacyLink`, `actions.accept|decline|manageCookies`.
+**Variables** — `ConsentService.use()` (état réactif `{ status, preferences }`), `categories()`
+(catégories actives du projet), `isRequired(category)`, `allows(category)`, `save(preferences)`,
+`grant()`, `deny()`, `reset()`. État persisté via `StorageService` sous `STORAGE_KEYS.consent`.
+**Catégories** — déclarées une fois dans `CONSENT_CATEGORIES` (`necessary`, toujours actif ;
+`analytics`, actif seulement si `features.json → analytics` l'est). Ajouter une catégorie : une
+entrée dans `CONSENT_CATEGORIES` et son bloc `consent.categories.<id>` dans `messages/`, aucun autre
+fichier ne change.
+**Composant** — `ConsentManager` (client, monté une fois par `[locale]/layout.tsx`, toujours visible)
+affiche `public/cookies/cookie.png` seul, sans surface autour, coin bas-droit (`FLOATING_RAIL` de
+`declarations/ui/variants.ts`, partagé avec `ScrollToTop`), qui ouvre un `Modal` avec un interrupteur
+(`FIELD_STYLES.switchTrack/switchThumb`) par catégorie. `Tout refuser`/`Tout accepter` appliquent tout
+ou rien ; `Enregistrer mes choix` retient les catégories activées via les interrupteurs.
+**Câblage analytique** — `AnalyticsGate` ne monte `<Analytics />` (Vercel) et `<GoogleAnalytics>`
+(GA4) que lorsque `ConsentService.use().preferences.analytics` est vrai.
+**Revenir sur son choix** — rouvrir la bulle à tout moment ; elle reste cliquable en permanence,
+aucun bouton dédié dans le pied de page.
+**Clés i18n** — `consent.title|description|privacyLink|required|categories.<id>.label|description`,
+`consent.actions.declineAll|saveChoices|acceptAll`, `actions.manageCookies|close` (libellés accessibles).
 **Cohérence avec le texte légal** — `legal.privacyPolicy.sections.cookies` décrit exactement ce
 comportement (pas de cookie hors consentement) ; modifier l'un sans l'autre romprait cette cohérence.
 
